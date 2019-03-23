@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Flexbox = styled.div`
+const FlexboxStyled = styled.div`
   display: flex;
 
   flex-wrap: ${props => {
@@ -28,4 +28,4 @@ const Flexbox = styled.div`
   )};
 `;
 
-export default Flexbox;
+export default FlexboxStyled;
