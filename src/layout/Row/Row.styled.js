@@ -2,22 +2,29 @@ import styled from 'styled-components';
 
 const RowStyled = styled.div`
   display: flex;
-  margin-bottom: 0;
 
-  flex-flow: ${props => {
-    if(props.flexFlow) return props.flexFlow
-    return 'row wrap'
-  }};
+  // Row API
+  /* margin-bottom: ${props => (
+    props.mb ? props.mb : 0
+  )};
 
-  justify-content: ${props => {
-    if(props.justifyContent) return props.justifyContent
-    return 'flex-start'
-  }};
+  margin-top: ${props => (
+    props.mt ? props.mt : 0
+  )}; */
 
-  align-items: ${props => {
-    if(props.alignItems) return props.alignItems
-    return 'center'
-  }};
+  margin-bottom: 0px;
+
+  flex-flow: ${props => (
+    props.flexFlow ? props.flexFlow : 'row wrap'
+  )};
+
+  justify-content: ${props => (
+    props.justifyContent ? props.justifyContent : 'flex-start'
+  )};
+
+  align-items: ${props => (
+    props.alignItems ? props.alignItems : 'center'
+  )};
 `;
 
 export default RowStyled;

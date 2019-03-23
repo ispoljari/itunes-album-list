@@ -8,7 +8,7 @@ const StyledContainer = styled.div `
       !props.fullWidth && css`
         max-width: 1440px;
         margin: 0 auto;
-        padding: 25px;
+        padding: 10px;
       `
     )
   }};
