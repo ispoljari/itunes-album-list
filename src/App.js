@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 
 import { 
   Container,
-  Flexbox } from './layout';
+  Row
+} from './layout';
 
 class App extends Component {
   render() {
     return (
       <Container>
-        <Flexbox>
+        <Row>
           <div>
             So it begins. The greatest battle of our time...
           </div>
-        </Flexbox>
+        </Row>
       </Container>
     );
   }

@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 
-import FlexboxStyled from './Flexbox.styled';
+import RowStyled from './Row.styled';
 
-class Flexbox extends Component {
+class Row extends Component {
   render() {
     const {children, ...style} = this.props;
-    
+
     return (
-      <FlexboxStyled 
+      <RowStyled 
         {...style}
       >
         {children}
-      </FlexboxStyled>
+      </RowStyled>
     );
   }
 };
 
-export default Flexbox;
+export default Row;
