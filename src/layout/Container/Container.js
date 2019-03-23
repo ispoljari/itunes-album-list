@@ -5,8 +5,11 @@ import StyledContainer from './Container.styled';
 class Container extends Component {
   render() {
     const {children, ...style} = this.props;
+    
     return (
-      <StyledContainer {...style}>
+      <StyledContainer 
+        {...style}
+      >
         {children}
       </StyledContainer>
     )

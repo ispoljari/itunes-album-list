@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 
-import { Container } from './layout';
+import { 
+  Container,
+  Flexbox } from './layout';
 
 class App extends Component {
   render() {
     return (
       <Container>
-        <div>
-          So it begins. The greatest battle of our time...
-        </div>
+        <Flexbox>
+          <div>
+            So it begins. The greatest battle of our time...
+          </div>
+        </Flexbox>
       </Container>
     );
   }

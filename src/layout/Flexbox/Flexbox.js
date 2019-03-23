@@ -5,8 +5,11 @@ import FlexboxStyled from './Flexbox.styled';
 class Flexbox extends Component {
   render() {
     const {children, ...style} = this.props;
+    
     return (
-      <FlexboxStyled {...style}>
+      <FlexboxStyled 
+        {...style}
+      >
         {children}
       </FlexboxStyled>
     );
