@@ -7,7 +7,7 @@ class Container extends Component {
     const {children, ...style} = this.props;
     return (
       <StyledContainer {...style}>
-        ${children}
+        {children}
       </StyledContainer>
     )
   }

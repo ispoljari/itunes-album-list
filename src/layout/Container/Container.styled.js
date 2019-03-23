@@ -1,8 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const StyledContainer = styled.div `
-  max-width: 1440px;
-  margin: 0 auto;
+  ${props => {
+    return (
+      !props.fullWidth && css`
+        max-width: 1440px;
+        margin: 0 auto;
+      `
+    )
+  }};
 
   padding-left: ${props => {
     if(props.fullWidth) return 0;
