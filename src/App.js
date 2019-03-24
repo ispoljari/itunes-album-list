@@ -19,9 +19,23 @@ class App extends Component {
             }}
           >
             <Column
-              xs={10}
-              sm={9}
+              xs={12}
+              sm={6}
+              osm={3}
               md={3}
+              omd={5}
+              style={{
+                backgroundColor: 'green'
+              }}
+            >
+              <div>
+              It is not our part to master all the tides of the world, but to do what is in us for the succor of those years wherein we are set, uprooting the evil in the fields that we know, so that those who live after may have clean earth to till.
+              </div>          
+            </Column>
+            <Column
+              xs={12}
+              sm={3}
+              md={4}
               style={{
                 backgroundColor: 'green'
               }}

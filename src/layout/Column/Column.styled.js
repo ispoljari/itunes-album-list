@@ -12,6 +12,7 @@ const ColumnStyled = styled(LayoutApi)`
      if (props.xs) {
       return css`
         flex-basis: ${props.xs/12*100}%;
+        margin-left: ${props.oxs ? props.oxs/12*100 : ''}%;
         max-width: ${props.xs/12*100}%;
       `;
      } else {
@@ -27,6 +28,7 @@ const ColumnStyled = styled(LayoutApi)`
       if (props.sm) {
         return css`
           flex-basis: ${props.sm/12*100}%;
+          margin-left: ${props.osm ? props.osm/12*100 : ''}%;
           max-width: ${props.sm/12*100}%;
         `;
       }
@@ -38,6 +40,7 @@ const ColumnStyled = styled(LayoutApi)`
       if (props.md) {
         return css`
           flex-basis: ${props.md/12*100}%;
+          margin-left: ${props.omd ? props.omd/12*100 : ''}%;
           max-width: ${props.md/12*100}%;
         `;
       }
@@ -49,6 +52,7 @@ const ColumnStyled = styled(LayoutApi)`
       if (props.lg) {
         return css`
           flex-basis: ${props.lg/12*100}%;
+          margin-left: ${props.olg ? props.olg/12*100 : ''}%;
           max-width: ${props.lg/12*100}%;
         `;
       }
@@ -60,6 +64,7 @@ const ColumnStyled = styled(LayoutApi)`
       if (props.xl) {
         return css`
           flex-basis: ${props.xl/12*100}%;
+          margin-left: ${props.oxl ? props.oxl/12*100 : ''}%;
           max-width: ${props.xl/12*100}%;
         `;
       }

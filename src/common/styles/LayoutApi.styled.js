@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 const LayoutApi = styled.div`
-  /* &&& used to increase selector specificity */
   &&& { 
     ${props => {
       if (typeof(props.pl) === 'string' || typeof(props.pr) === 'string') {
