@@ -5,10 +5,6 @@ import LayoutApi from '../../common/styles/LayoutApi.styled';
 const RowStyled = styled(LayoutApi)`
   display: flex;
 
-  @media (min-width: 575px) {
-    margin-bottom: 10px;
-  }
-
   /* Row API */
 
   flex-flow: ${props => (

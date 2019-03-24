@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import LayoutApi from '../../common/styles/LayoutApi.styled';
 
@@ -6,48 +6,65 @@ const ColumnStyled = styled(LayoutApi)`
   flex: auto;
   padding: 0 1.041666%; /* default */
   
-  /* Column API */
+  /* Column API */;
 
-  /* widths */
-  flex-basis: ${props => {
-    if (props.xs) {
-      return props.xs/12*100 + '%'
-    } else {
-      return '100%'
-    }
+  ${props => {
+     if (props.xs) {
+      return css`
+        flex-basis: ${props.xs/12*100}%;
+        max-width: ${props.xs/12*100}%;
+      `;
+     } else {
+      return css`
+        flex-basis: 100%;
+        max-width: 100%;
+      `;
+     }
   }};
 
   @media (min-width: 576px) {
-    flex-basis: ${props => {
+    ${props => {
       if (props.sm) {
-        return props.sm/12*100 + '%'
+        return css`
+          flex-basis: ${props.sm/12*100}%;
+          max-width: ${props.sm/12*100}%;
+        `;
       }
-    }}
-  }
+    }};
+  };
 
   @media (min-width: 768px) {
-    flex-basis: ${props => {
+    ${props => {
       if (props.md) {
-        return props.md/12*100 + '%'
+        return css`
+          flex-basis: ${props.md/12*100}%;
+          max-width: ${props.md/12*100}%;
+        `;
       }
-    }}
-  }
+    }};
+  };
 
   @media (min-width: 992px) {
-    flex-basis: ${props => {
+    ${props => {
       if (props.lg) {
-        return props.lg/12*100 + '%'
+        return css`
+          flex-basis: ${props.lg/12*100}%;
+          max-width: ${props.lg/12*100}%;
+        `;
       }
-    }}
-  }
+    }};
+  };
 
   @media (min-width: 1200px) {
-    flex-basis: ${props => {
+    ${props => {
       if (props.xl) {
-        return props.xl/12*100 + '%'
+        return css`
+          flex-basis: ${props.xl/12*100}%;
+          max-width: ${props.xl/12*100}%;
+        `;
       }
-    }}
-  }
+    }};
+  };
 `;
 
 export default ColumnStyled;

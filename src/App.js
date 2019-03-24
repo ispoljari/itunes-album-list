@@ -17,27 +17,9 @@ class App extends Component {
             style={{
               backgroundColor: 'yellow'
             }}
-            px={{xs:"10px", sm:"20px", md:"30px", lg:"40px", xl:"50px"}}
-            py={{xs:"8px", sm:"9px", md:"7px", lg:"6px", xl:"5px"}}
-            mx={{xs:"10px", sm:"20px", md:"30px", lg:"40px", xl:"50px"}}
-            my={{xs:"11px", sm:"21px", md:"31px", lg:"41px", xl:"51px"}}
           >
-            <Column 
-              xs={12}
-              sm={3}
-              md={9}
-              style={{
-                backgroundColor: 'blue'
-              }}
-              px="20px"
-              py="20px"
-            >
-              <div>
-              Many that live deserve death. And some that die deserve life. Can you give it to them? Then do not be eager to deal out death in judgement. For even the very wise cannot see all ends.
-              </div>          
-            </Column>
             <Column
-              xs={12}
+              xs={10}
               sm={9}
               md={3}
               style={{
@@ -53,8 +35,6 @@ class App extends Component {
             style={{
               backgroundColor: 'yellow'
             }}
-            p="20px"
-            mt="30px"
           >
             <Column 
               xs={6}
@@ -63,12 +43,10 @@ class App extends Component {
               style={{
                 backgroundColor: 'blue'
               }}
-              px="20px"
-              py="20px"
             >
               <div>
               Many that live deserve death. And some that die deserve life. Can you give it to them? Then do not be eager to deal out death in judgement. For even the very wise cannot see all ends.
-              </div>          
+              </div>                  
             </Column>
             <Column
               xs={6}
