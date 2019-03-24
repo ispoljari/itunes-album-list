@@ -15,22 +15,9 @@ class App extends Component {
         <Normalize />
         <GlobalStyle />
         <Container>
-          <Row 
-            style={{
-              backgroundColor: 'yellow'
-            }}
-          >
+          <Row>
             <Column>
-              Hello from the other side.
-            </Column>
-          </Row>
-          <Row 
-            style={{
-              backgroundColor: 'yellow'
-            }}
-          >
-            <Column>
-              Hello from the other side.
+              The layout system is complete
             </Column>
           </Row>
         </Container>
