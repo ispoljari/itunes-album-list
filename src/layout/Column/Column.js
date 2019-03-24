@@ -4,11 +4,11 @@ import ColumnStyled from './Column.styled';
 
 class Column extends Component {
   render() {
-    const {children, ...style} = this.props;
+    const {children, ...styles} = this.props;
 
     return (
       <ColumnStyled 
-        {...style}
+        {...styles}
       >
         {children}
       </ColumnStyled>

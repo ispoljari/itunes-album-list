@@ -18,9 +18,18 @@ class App extends Component {
               backgroundColor: 'yellow'
             }}
           >
-          <Column>
-            Hello from the other side.
-          </Column>
+            <Column>
+              Hello from the other side.
+            </Column>
+          </Row>
+          <Row 
+            style={{
+              backgroundColor: 'yellow'
+            }}
+          >
+            <Column>
+              Hello from the other side.
+            </Column>
           </Row>
         </Container>
       </React.Fragment>
