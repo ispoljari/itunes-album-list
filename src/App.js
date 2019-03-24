@@ -18,6 +18,7 @@ class App extends Component {
               backgroundColor: 'yellow'
             }}
             px={{xs:"10px", sm:"20px", md:"30px", lg:"40px", xl:"50px"}}
+            py="10px"
           >
             <Column 
               xs={12}
