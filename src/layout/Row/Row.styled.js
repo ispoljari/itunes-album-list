@@ -7,7 +7,7 @@ const RowStyled = styled.div`
     margin-bottom: 10px;
   }
 
-  // Row API
+  /* Row API */
 
   flex-flow: ${props => (
     props.flexFlow ? props.flexFlow : 'row wrap'
