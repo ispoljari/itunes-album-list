@@ -25,7 +25,55 @@ Row.propTypes = {
   styles: PropTypes.shape({
     flexFlow: PropTypes.string,
     justifyContent: PropTypes.string,
-    alignItems: PropTypes.string
+    alignItems: PropTypes.string,
+    pl: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    pr: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    pt: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    pb: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    px: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    py: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    ml: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    mr: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    mt: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    mb: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    mx: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    my: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ])
   })
 };
 
@@ -33,7 +81,19 @@ Row.defaultProps = {
   styles: {
     flexFlow: '',
     justifyContent: '',
-    alignItems: ''
+    alignItems: '',
+    pl: '',
+    pr: '',
+    pt: '',
+    pb: '',
+    px: '',
+    py: '',
+    ml: '',
+    mr: '',
+    mt: '',
+    mb: '',
+    mx: '',
+    my: ''
   }
 };
 
