@@ -22,11 +22,15 @@ Container.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
-  styles: PropTypes.bool
+  styles: PropTypes.shape({
+    fullWidth: PropTypes.bool
+  })
 };
 
 Container.defaultProps = {
-  styles: false
+  styles: {
+    fullWidth: false
+  }
 };
 
 export default Container;
