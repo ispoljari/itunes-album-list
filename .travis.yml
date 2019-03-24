@@ -2,6 +2,13 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
 env:
-  - CI=true
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: VRzLrBB5l2tdLQgEN4UvlX9C5izqkMWXXqZZNWjzTHV3qwEafVwn/Tvr3s41RtgXO4OmsE6uy655bkRChUVE5QQq2L/QDN8EnQ/sx1N3ph/NmF41eHJAe8da8ZSim+n5o//RgxgemcCSBpxP4TUeYVXlDEcdrOEY4rDc6pYUdGQYZUm8dZ/19IY8Iq5kRp6bNfbP8Altk5PsMr+xjPA1JeJvg2oddv4jP2q8/tL+op/tScBHsWI0/gE1N33JR/6JUJFmmQw5n5noSGyx6wacjZRMK2RUoOI8caFF4XD5eLaD0ECT7D/9L6F3YZF2LcUHJ686GsjotlW7V/RsEoqjqu761iQvQ9tg2h4KW9SCGk4rmXyb01aJDkizG3XtVZcy6yyOAbCp5dy1mNkZ8/LzJV0XlEDX8cPvcE+gAaTbDVD1WqQDQhhfiL6uYO6mqquigihlkSfQj8SQVhkToJ4u9dcAoEdAaE6ZauN7Q6sz3MkFcUrZ1yre0GGSA4WuY6WzjAqL1ZalMCiCK2TzIkrHYwWj27wPoeECV9R7Xo43B9VU1Wnz9EMckTRfZ76L1Hn/4WO+cZXN/b5Lt2QyiRwLrIJV3MqLaCPDm8eYMSPuUX+tOU+wBlV7xllDoZE1ujRitDlr4nK3ChIAFKbMpNcdWH5VLW/IxHX3vJfMrkuZOTY=
+  app: stark-eyrie-10742
+  on:
+    repo: ispoljari/itunes-album-list
