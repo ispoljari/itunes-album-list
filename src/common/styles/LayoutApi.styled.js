@@ -40,7 +40,7 @@ const LayoutApi = styled.div`
             padding-left: ${props.pl && (props.pl.xl ? props.pl.xl : '')};
             padding-right: ${props.pr && (props.pr.xl ? props.pr.xl : '')};
           }
-        `
+        `;
       } else if (typeof(props.px) === 'object') {
         return css`
           @media (max-width: 575px) {
@@ -67,7 +67,7 @@ const LayoutApi = styled.div`
             padding-left: ${props.px.xl ? props.px.xl : ''};
             padding-right: ${props.px.xl ? props.px.xl : ''};
           }
-        `
+        `;
       }
     }};
 
@@ -108,7 +108,7 @@ const LayoutApi = styled.div`
             padding-top: ${props.pt && (props.pt.xl ? props.pt.xl : '')};
             padding-bottom: ${props.pb && (props.pb.xl ? props.pb.xl : '')};
           }
-        `
+        `;
       } else if (typeof(props.py) === 'object') {
         return css`
           @media (max-width: 575px) {
@@ -135,38 +135,75 @@ const LayoutApi = styled.div`
             padding-top: ${props.py.xl ? props.py.xl : ''};
             padding-bottom: ${props.py.xl ? props.py.xl : ''};
           }
-        `
+        `;
       }
     }};
 
-    /* margins*/
-    margin-left: ${props => {
-      if (props.ml || props.mx) {
-        return (props.ml || props.mx)
-      }
-    }};
+    ${props => {
+      if (typeof(props.mt) === 'string' || typeof(props.mb) === 'string') {
+        return css`
+          margin-top: ${props.mt ? props.mt : ''};
+          margin-bottom: ${props.mb ? props.mb : ''};
+        `;
+      } else if (typeof(props.my) === 'string') {
+        return css`
+          margin-top: ${props.my};
+          margin-bottom: ${props.my};
+        `;
+      } else if (typeof(props.mt) === 'object' || typeof(props.mb) === 'object') {
+        return css`
+          @media (max-width: 575px) {
+            margin-top: ${props.mt && (props.mt.xs ? props.mt.xs : '')};
+            margin-bottom: ${props.mb && (props.mb.xs ? props.mb.xs : '')};
+          }
 
-    margin-right: ${props => {
-      if (props.mr || props.mx) {
-        return (props.mr || props.mx)
-      }
-    }};
+          @media (min-width: 576px) {
+            margin-top: ${props.mt && (props.mt.sm ? props.mt.sm : '')};
+            margin-bottom: ${props.mb && (props.mb.sm? props.mb.sm : '')};
+          }
+          
+          @media (min-width: 768px) {
+            margin-top: ${props.mt && (props.mt.md ? props.mt.md : '')};
+            margin-bottom: ${props.mb && (props.mb.md ? props.mb.md : '')};
+          }
+          
+          @media (min-width: 992px) {
+            margin-top: ${props.mt && (props.mt.lg ? props.mt.lg : '')};
+            margin-bottom: ${props.mb && (props.mb.lg ? props.mb.lg : '')};
+          }
+          
+          @media (min-width: 1200px) {
+            margin-top: ${props.mt && (props.mt.xl ? props.mt.xl : '')};
+            margin-bottom: ${props.mb && (props.mb.xl ? props.mb.xl : '')};
+          }
+        `;
+      } else if (typeof(props.my) === 'object') {
+        return css`
+          @media (max-width: 575px) {
+            margin-top: ${props.my.xs ? props.my.xs : ''};
+            margin-bottom: ${props.my.xs ? props.my.xs : ''};
+          }
 
-    margin-top: ${props => {
-      if (props.mt || props.my) {
-        return (props.mt || props.my)
-      }
-    }};
-
-    margin-bottom: ${props => {
-      if (props.mb || props.my) {
-        return (props.mb || props.my)
-      }
-    }};
-
-    margin: ${props => {
-      if (props.m) {
-        return props.my
+          @media (min-width: 576px) {
+            margin-top: ${props.my.sm ? props.my.sm : ''};
+            margin-bottom: ${props.my.sm ? props.my.sm : ''};
+          }
+          
+          @media (min-width: 768px) {
+            margin-top: ${props.my.md ? props.my.md : ''};
+            margin-bottom: ${props.my.md ? props.my.md : ''};
+          }
+          
+          @media (min-width: 992px) {
+            margin-top: ${props.my.lg ? props.my.lg : ''};
+            margin-bottom: ${props.my.lg ? props.my.lg : ''};
+          }
+          
+          @media (min-width: 1200px) {
+            margin-top: ${props.my.xl ? props.my.xl : ''};
+            margin-bottom: ${props.my.xl ? props.my.xl : ''};
+          }
+        `;
       }
     }};
   }

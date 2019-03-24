@@ -19,6 +19,7 @@ class App extends Component {
             }}
             px={{xs:"10px", sm:"20px", md:"30px", lg:"40px", xl:"50px"}}
             py="10px"
+            my={{xs:"10px", sm:"20px", md:"30px", lg:"40px", xl:"50px"}}
           >
             <Column 
               xs={12}
