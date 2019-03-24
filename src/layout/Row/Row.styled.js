@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const RowStyled = styled.div`
+import LayoutApi from '../../common/styles/LayoutApi.styled';
+
+const RowStyled = styled(LayoutApi)`
   display: flex;
 
   @media (min-width: 575px) {

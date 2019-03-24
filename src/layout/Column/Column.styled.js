@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const ColumnStyled = styled.div`
+import LayoutApi from '../../common/styles/LayoutApi.styled';
+
+const ColumnStyled = styled(LayoutApi)`
   flex: auto;
   padding: 0 1.041666%; /* default */
   
