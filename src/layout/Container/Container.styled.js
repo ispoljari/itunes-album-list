@@ -6,7 +6,7 @@ const StyledContainer = styled.div `
   ${props => {
     return (
       !props.fullWidth && css`
-        max-width: 1440px;
+        max-width: 1460px;
         margin: 0 auto;
         padding: 10px;
       `

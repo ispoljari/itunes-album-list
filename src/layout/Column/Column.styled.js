@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 const ColumnStyled = styled.div`
   flex: auto;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 0 1.041666%;
 
   flex-basis: ${props => {
     if (props.xs) {
