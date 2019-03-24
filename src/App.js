@@ -18,8 +18,9 @@ class App extends Component {
               backgroundColor: 'yellow'
             }}
             px={{xs:"10px", sm:"20px", md:"30px", lg:"40px", xl:"50px"}}
-            py="10px"
-            my={{xs:"10px", sm:"20px", md:"30px", lg:"40px", xl:"50px"}}
+            py={{xs:"8px", sm:"9px", md:"7px", lg:"6px", xl:"5px"}}
+            mx={{xs:"10px", sm:"20px", md:"30px", lg:"40px", xl:"50px"}}
+            my={{xs:"11px", sm:"21px", md:"31px", lg:"41px", xl:"51px"}}
           >
             <Column 
               xs={12}

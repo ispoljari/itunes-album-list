@@ -140,6 +140,74 @@ const LayoutApi = styled.div`
     }};
 
     ${props => {
+      if (typeof(props.ml) === 'string' || typeof(props.mr) === 'string') {
+        return css`
+          margin-left: ${props.ml ? props.ml : ''};
+          margin-right: ${props.mr ? props.mr : ''};
+        `;
+      } else if (typeof(props.my) === 'string') {
+        return css`
+          margin-left: ${props.my};
+          margin-right: ${props.my};
+        `;
+      } else if (typeof(props.ml) === 'object' || typeof(props.mr) === 'object') {
+        return css`
+          @media (max-width: 575px) {
+            margin-left: ${props.ml && (props.ml.xs ? props.ml.xs : '')};
+            margin-right: ${props.mr && (props.mr.xs ? props.mr.xs : '')};
+          }
+
+          @media (min-width: 576px) {
+            margin-left: ${props.ml && (props.ml.sm ? props.ml.sm : '')};
+            margin-right: ${props.mr && (props.mr.sm? props.mr.sm : '')};
+          }
+          
+          @media (min-width: 768px) {
+            margin-left: ${props.ml && (props.ml.md ? props.ml.md : '')};
+            margin-right: ${props.mr && (props.mr.md ? props.mr.md : '')};
+          }
+          
+          @media (min-width: 992px) {
+            margin-left: ${props.ml && (props.ml.lg ? props.ml.lg : '')};
+            margin-right: ${props.mr && (props.mr.lg ? props.mr.lg : '')};
+          }
+          
+          @media (min-width: 1200px) {
+            margin-left: ${props.ml && (props.ml.xl ? props.ml.xl : '')};
+            margin-right: ${props.mr && (props.mr.xl ? props.mr.xl : '')};
+          }
+        `;
+      } else if (typeof(props.mx) === 'object') {
+        return css`
+          @media (max-width: 575px) {
+            margin-left: ${props.mx.xs ? props.mx.xs : ''};
+            margin-right: ${props.mx.xs ? props.mx.xs : ''};
+          }
+
+          @media (min-width: 576px) {
+            margin-left: ${props.mx.sm ? props.mx.sm : ''};
+            margin-right: ${props.mx.sm ? props.mx.sm : ''};
+          }
+          
+          @media (min-width: 768px) {
+            margin-left: ${props.mx.md ? props.mx.md : ''};
+            margin-right: ${props.mx.md ? props.mx.md : ''};
+          }
+          
+          @media (min-width: 992px) {
+            margin-left: ${props.mx.lg ? props.mx.lg : ''};
+            margin-right: ${props.mx.lg ? props.mx.lg : ''};
+          }
+          
+          @media (min-width: 1200px) {
+            margin-left: ${props.mx.xl ? props.mx.xl : ''};
+            margin-right: ${props.mx.xl ? props.mx.xl : ''};
+          }
+        `;
+      }
+    }};
+
+    ${props => {
       if (typeof(props.mt) === 'string' || typeof(props.mb) === 'string') {
         return css`
           margin-top: ${props.mt ? props.mt : ''};
