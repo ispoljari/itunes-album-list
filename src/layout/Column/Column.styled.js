@@ -3,6 +3,8 @@ import styled from 'styled-components';
 const ColumnStyled = styled.div`
   flex: auto;
   padding: 0 1.041666%;
+  
+  // Column API
 
   flex-basis: ${props => {
     if (props.xs) {
@@ -12,12 +14,34 @@ const ColumnStyled = styled.div`
     }
   }};
 
-  margin-bottom: 10px;
-
   @media (min-width: 576px) {
     flex-basis: ${props => {
       if (props.sm) {
         return props.sm/12*100 + '%'
+      }
+    }}
+  }
+
+  @media (min-width: 768px) {
+    flex-basis: ${props => {
+      if (props.md) {
+        return props.md/12*100 + '%'
+      }
+    }}
+  }
+
+  @media (min-width: 992px) {
+    flex-basis: ${props => {
+      if (props.lg) {
+        return props.lg/12*100 + '%'
+      }
+    }}
+  }
+
+  @media (min-width: 1200px) {
+    flex-basis: ${props => {
+      if (props.xl) {
+        return props.xl/12*100 + '%'
       }
     }}
   }

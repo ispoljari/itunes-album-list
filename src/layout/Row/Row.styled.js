@@ -3,11 +3,11 @@ import styled from 'styled-components';
 const RowStyled = styled.div`
   display: flex;
 
-  margin-bottom: 0px;
-
   @media (min-width: 575px) {
     margin-bottom: 10px;
   }
+
+  // Row API
 
   flex-flow: ${props => (
     props.flexFlow ? props.flexFlow : 'row wrap'
