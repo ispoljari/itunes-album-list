@@ -15,16 +15,16 @@ export const H1 = styled.h1`
 
 export const Input = styled.input`
   width: 100%;
-  font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1700 - 320)));
-  padding: 5px;
+  min-height: 40px;
+  font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1700 - 320)));
+  padding: 5px 10px;
   border: 1px solid #c1c1c1;
-  border-radius: 5px;
 
   @media (min-width: 1700px) {
     font-size: 18px;
   }
 
   @media (max-width: 320px) {
-    font-size: 14px;
+    font-size: 16px;
   }
 `;
