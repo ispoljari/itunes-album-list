@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import { Row, Column, Box } from '../../layout';
-import { H1, P, Input } from './Header.styled';
+import { H1, Input } from './Header.styled';
+import { P } from '../../common/styles/Typography.styled';
 
 class Header extends Component {
   render() {

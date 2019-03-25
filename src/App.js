@@ -3,7 +3,7 @@ import { Normalize } from 'styled-normalize';
 
 import GlobalStyle from './Global.styled';
 import { Container } from './layout';
-import { Header } from './components';
+import { Header, Main } from './components';
 
 class App extends Component {
   render() {
@@ -13,6 +13,7 @@ class App extends Component {
         <GlobalStyle />
         <Container>
           <Header />
+          <Main />
         </Container>
       </React.Fragment>
     );

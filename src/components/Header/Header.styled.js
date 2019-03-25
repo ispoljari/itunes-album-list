@@ -13,23 +13,10 @@ export const H1 = styled.h1`
   }
 `;
 
-export const P = styled.p`
-  font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1700 - 320)));
-  color: #969696;
-
-  @media (min-width: 1700px) {
-    font-size: 18px;
-  }
-
-  @media (max-width: 320px) {
-    font-size: 14px;
-  }
-`;
-
 export const Input = styled.input`
   width: 100%;
   font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1700 - 320)));
-  padding: 3px 5px;
+  padding: 5px;
   border: 1px solid #c1c1c1;
   border-radius: 5px;
 
