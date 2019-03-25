@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import LayoutApi from '../../common/styles/LayoutApi.styled';
+import { LayoutApi } from '../../common';
 
 const ColumnStyled = styled(LayoutApi)`
   flex: auto;

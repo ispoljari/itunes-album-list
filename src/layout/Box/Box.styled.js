@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import LayoutApi from '../../common/styles/LayoutApi.styled';
+import { LayoutApi } from '../../common';
 
 const BoxStyled = styled(LayoutApi)``;
 
