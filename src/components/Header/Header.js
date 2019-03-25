@@ -16,7 +16,12 @@ class Header extends Component {
             xs={12}
             sm={6}
           >
-            Album list
+            <h1>
+              Album list
+            </h1>
+            <p>
+              Top10
+            </p>
           </Column>
           <Column
             xs={12}

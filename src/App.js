@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import { Normalize } from 'styled-normalize';
 
 import GlobalStyle from './Global.styled';
-import { 
-  Container,
-  Row,
-  Column
-} from './layout';
+import { Container } from './layout';
 import { Header } from './components';
 
 class App extends Component {
@@ -16,11 +12,7 @@ class App extends Component {
         <Normalize />
         <GlobalStyle />
         <Container>
-          <Row>
-            <Column>
-              <Header />
-            </Column>
-          </Row>
+          <Header />
         </Container>
       </React.Fragment>
     );

@@ -15,6 +15,14 @@ const GlobalStyle = createGlobalStyle`
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.3;
     -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+  }
+
+  h1,
+  h2,
+  p {
+    margin: 0;
+    padding: 0;
   }
 `;
 
