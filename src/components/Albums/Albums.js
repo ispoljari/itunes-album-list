@@ -6,7 +6,7 @@ import { P } from '../../common';
 
 const postTemplate = album => (
   <Column
-    sm="6"
+    md="6"
     lg="4"
     pb="20px"
     key={uuidv4()}

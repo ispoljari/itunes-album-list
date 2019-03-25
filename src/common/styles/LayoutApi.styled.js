@@ -311,6 +311,42 @@ const LayoutApi = styled.div`
         `;
       }
     }};
+
+    ${props => {
+      if (typeof(props.maxWidth) === 'string' || typeof(props.maxHeight) === 'string') {
+        return css`
+          max-width: ${props.maxWidth ? props.maxWidth : ''};
+          max-height: ${props.maxHeight ? props.maxHeight : ''};
+        `;
+      } else if (typeof(props.maxWidth) === 'object' || typeof(props.maxHeight) === 'object') {
+        return css`
+          @media (max-width: 575px) {
+            max-width: ${props.maxWidth && (props.maxWidth.xs ? props.maxWidth.xs : '')};
+            max-height: ${props.maxHeight && (props.maxHeight.xs ? props.maxHeight.xs : '')};
+          }
+
+          @media (min-width: 576px) {
+            max-width: ${props.maxWidth && (props.maxWidth.sm ? props.maxWidth.sm : '')};
+            max-height: ${props.maxHeight && (props.maxHeight.sm ? props.maxHeight.sm : '')};
+          }
+          
+          @media (min-width: 768px) {
+            max-width: ${props.maxWidth && (props.maxWidth.md ? props.maxWidth.md : '')};
+            max-height: ${props.maxHeight && (props.maxHeight.md ? props.maxHeight.md : '')};
+          }
+          
+          @media (min-width: 992px) {
+            max-width: ${props.maxWidth && (props.maxWidth.lg ? props.maxWidth.lg : '')};
+            max-height: ${props.maxHeight && (props.maxHeight.lg ? props.maxHeight.lg : '')};
+          }
+          
+          @media (min-width: 1200px) {
+            max-width: ${props.maxWidth && (props.maxWidth.xl ? props.maxWidth.xl : '')};
+            max-height: ${props.maxHeight && (props.maxHeight.xl ? props.maxHeight.xl : '')};
+          }
+        `;
+      }
+    }};
   }
 `;
 
