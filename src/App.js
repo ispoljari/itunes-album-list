@@ -17,7 +17,7 @@ class App extends Component {
         <Container>
           <Row>
             <Column>
-              The layout system is complete
+              <Header />
             </Column>
           </Row>
         </Container>

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const StyledContainer = styled.div `
+const StyledContainer = styled.div`
   padding: 0;
 
   ${props => {
@@ -8,7 +8,7 @@ const StyledContainer = styled.div `
       !props.fullWidth && css`
         max-width: 1460px;
         margin: 0 auto;
-        padding: 10px;
+        padding: 0 10px;
       `
     )
   }};
