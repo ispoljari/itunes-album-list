@@ -14,6 +14,14 @@ const BoxStyled = styled(LayoutApi)`
   }};
 
   ${props => {
+    if (props.border) {
+      return css`
+        border: ${props.border};
+      `;
+    }
+  }};
+
+  ${props => {
     if (props.flexDirection) {
       return css`
         flex-direction: ${props.flexDirection};
