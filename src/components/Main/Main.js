@@ -12,6 +12,8 @@ class Main extends Component {
         role="main"
         px="30px"
         py={{xs:"10px", sm:"30px"}}
+        backgroundColor="#f7f7f7"
+        borderRadius="5px"
       >
         <Row>
           <Column>

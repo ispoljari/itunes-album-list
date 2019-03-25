@@ -21,6 +21,14 @@ const BoxStyled = styled(LayoutApi)`
     }
   }};
 
+${props => {
+    if (props.borderRadius) {
+      return css`
+        border-radius: ${props.borderRadius};
+      `;
+    }
+  }};
+
   ${props => {
     if (props.flexDirection) {
       return css`

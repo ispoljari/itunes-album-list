@@ -14,6 +14,10 @@ const postTemplate = album => (
   >
     <Box
       display="flex"
+      backgroundColor="white"
+      px="15px"
+      py="15px"      
+      borderRadius="5px"
     >
       <Box
         width="170px"
@@ -36,11 +40,6 @@ const postTemplate = album => (
           >
             {album.artist}
           </P>
-          <P
-            mt="5px"
-          >
-            {album.released}
-          </P>
         </Box>
         <Box>
           <P>
@@ -59,7 +58,6 @@ class Albums extends Component {
       name: 'Album',
       imgSrc: 'https://via.placeholder.com/170',
       artist: "Artist Name",
-      released: 'February 16, 2018',
       price: '6.99$'
     }
 
