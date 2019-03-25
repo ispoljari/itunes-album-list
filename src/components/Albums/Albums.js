@@ -3,6 +3,7 @@ import uuidv4 from 'uuid/v4';
 
 import { Column, Box } from '../../layout';
 import { P } from '../../common';
+import { Img } from './Albums.styled';
 
 const postTemplate = album => (
   <Column
@@ -17,9 +18,10 @@ const postTemplate = album => (
       <Box
         width="170px"
         height="170px"
-        border="1px solid black"
-      > 
-        {album.imgSrc}
+        maxWidth={{xs:"110px"}}
+        maxHeight={{xs:"110px"}}
+      >
+        <Img src={album.imgSrc} alt="placeholder"/>
       </Box>
       <Box
         pl="10px"
@@ -55,7 +57,7 @@ class Albums extends Component {
     let results = [];
     let template = {
       name: 'Album',
-      imgSrc: '/url/img',
+      imgSrc: 'https://via.placeholder.com/170',
       artist: "Artist Name",
       released: 'February 16, 2018',
       price: '6.99$'
