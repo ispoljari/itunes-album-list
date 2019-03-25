@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { Albums } from '../index';
 import { Row, Column, Box } from '../../layout';
 import { P } from '../../common';
 
@@ -20,6 +21,11 @@ class Main extends Component {
               All
             </P>
           </Column>
+        </Row>
+        <Row
+          mt="20px"
+        >
+          <Albums />
         </Row>
       </Box>
     )
