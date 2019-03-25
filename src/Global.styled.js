@@ -10,6 +10,12 @@ const GlobalStyle = createGlobalStyle`
   *:after {
     box-sizing: inherit;
   }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.3;
+    -webkit-font-smoothing: antialiased;
+  }
 `;
 
 export default GlobalStyle;
