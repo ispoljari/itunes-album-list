@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Row, Column, Box } from '../../layout';
 import { H1, Input } from './Header.styled';
-import { P } from '../../common/styles/Typography.styled';
+import { P } from '../../common';
 
 class Header extends Component {
   render() {
@@ -26,7 +26,9 @@ class Header extends Component {
               <H1>
                 Album list
               </H1>
-              <P>
+              <P
+                mt="3px"
+              >
                 Top10
               </P>
             </Box>
@@ -37,7 +39,7 @@ class Header extends Component {
             md={6}
             lg={5}
             xl={4}
-            mt={{xs:"10px"}}
+            mt={{xs:"15px"}}
           >
             <Input type="text" placeholder="Search" />
           </Column>
