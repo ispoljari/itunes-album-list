@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Box } from '../../layout';
+import { Row, Column, Box } from '../../layout';
 
 class Header extends Component {
   render() {
@@ -11,7 +11,20 @@ class Header extends Component {
         px="20px"
         py="20px"
       > 
-        Album list
+        <Row>
+          <Column
+            xs={12}
+            sm={6}
+          >
+            Album list
+          </Column>
+          <Column
+            xs={12}
+            sm={6}
+          >
+            Input
+          </Column>
+        </Row>
       </Box>
     )
   }
