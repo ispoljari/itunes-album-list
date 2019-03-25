@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 
+import { Box } from '../../layout';
+
 class Header extends Component {
   render() {
     return (
-      <header
+      <Box
+        as="header"
         role="banner"
+        px="20px"
+        py="20px"
       > 
         Album list
-      </header>
+      </Box>
     )
   }
 }

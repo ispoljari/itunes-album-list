@@ -7,6 +7,7 @@ import {
   Row,
   Column
 } from './layout';
+import { Header } from './components';
 
 class App extends Component {
   render() {
