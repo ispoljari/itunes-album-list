@@ -3,12 +3,12 @@ import uuidv4 from 'uuid/v4';
 
 import { Column, Box } from '../../layout';
 import { P } from '../../common';
-import { Img } from './Albums.styled';
+import { Img, H2 } from './Albums.styled';
 
 const postTemplate = album => (
   <Column
     md="6"
-    lg="4"
+    xl="4"
     pb="20px"
     key={uuidv4()}
   >
@@ -18,8 +18,8 @@ const postTemplate = album => (
       <Box
         width="170px"
         height="170px"
-        maxWidth={{xs:"110px"}}
-        maxHeight={{xs:"110px"}}
+        maxWidth={{xs:"100px"}}
+        maxHeight={{xs:"100px"}}
       >
         <Img src={album.imgSrc} alt="placeholder"/>
       </Box>
@@ -30,7 +30,7 @@ const postTemplate = album => (
         justifyContent="space-around"
       >
         <Box>
-          <h2>{album.name}</h2>
+          <H2>{album.name}</H2>
           <P
             mt="5px"
           >
