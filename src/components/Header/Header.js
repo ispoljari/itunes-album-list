@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Row, Column, Box } from '../../layout';
-import { H1, P } from './Header.styled';
+import { H1, P, Input } from './Header.styled';
 
 class Header extends Component {
   render() {
@@ -15,7 +15,10 @@ class Header extends Component {
         <Row>
           <Column
             xs={12}
-            sm={6}
+            sm={5}
+            md={6}
+            lg={7}
+            xl={8}
           >
             <H1>
               Album list
@@ -26,9 +29,13 @@ class Header extends Component {
           </Column>
           <Column
             xs={12}
-            sm={6}
+            sm={7}
+            md={6}
+            lg={5}
+            xl={4}
+            mt={{xs:"10px"}}
           >
-            Input
+            <Input type="text" placeholder="Search" />
           </Column>
         </Row>
       </Box>
