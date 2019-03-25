@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Column, Box } from '../../layout';
+import { P } from '../../common';
 
 class Albums extends Component {
   render() {
@@ -11,12 +12,42 @@ class Albums extends Component {
         pb="20px"
       >
         <Box
-          px="10px"
-          py="10px"
-          width={{xs:"50px", sm:"70px", md:"90px", lg:"110px", xl:"130px"}}
-          backgroundColor="green"
-        > 
-          AlbImg
+          display="flex"
+        >
+          <Box
+            width="170px"
+            height="170px"
+            backgroundColor="green"
+          > 
+            Img
+          </Box>
+          <Box
+            pl="10px"
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-around"
+          >
+            <Box
+            >
+              <h2>Title</h2>
+              <P
+                mt="5px"
+              >
+                Artist Name
+              </P>
+              <P
+               mt="5px"
+              >
+                Released on February 16, 2018
+              </P>
+            </Box>
+            <Box>
+              <P
+              >
+                6.99$
+              </P>
+            </Box>
+          </Box>
         </Box>
       </Column>
     );

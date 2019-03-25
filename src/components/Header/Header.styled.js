@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const H1 = styled.h1`
   font-size: calc(22px + (30 - 22) * ((100vw - 320px) / (1700 - 320)));
-  font-weight: 400;
 
   @media (min-width: 1700px) {
     font-size: 30px;
