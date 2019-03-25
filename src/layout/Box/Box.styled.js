@@ -10,14 +10,6 @@ const BoxStyled = styled(LayoutApi)`
       `;
     }
   }};
-
-  ${props => {
-    if (props.width) {
-      return css`
-        width: ${props.width};
-      `;
-    }
-  }};
 `;
 
 export default BoxStyled;

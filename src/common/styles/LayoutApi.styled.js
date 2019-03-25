@@ -273,6 +273,36 @@ const LayoutApi = styled.div`
         `;
       }
     }};
+
+    ${props => {
+      if (typeof(props.width) === 'string') {
+        return css`
+          width: ${props.width};
+        `;
+      } else if (typeof(props.width) === 'object') {
+        return css`
+          @media (max-width: 575px) {
+            width: ${props.width.xs ? props.width.xs : ''};
+          }
+
+          @media (min-width: 576px) {
+            width: ${props.width.sm ? props.width.sm : ''};
+          }
+          
+          @media (min-width: 768px) {
+            width: ${props.width.md ? props.width.md : ''};
+          }
+          
+          @media (min-width: 992px) {
+            width: ${props.width.lg ? props.width.lg : ''};
+          }
+          
+          @media (min-width: 1200px) {
+            width: ${props.width.xl ? props.width.xl : ''};
+          }
+        `;
+      }
+    }};
   }
 `;
 

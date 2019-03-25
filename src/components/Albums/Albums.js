@@ -11,10 +11,11 @@ class Albums extends Component {
         pb="20px"
       >
         <Box
-          backgroundColor="orange"
-          px="50px"
-          py="50px"
-        />
+          px="10px"
+          py="10px"
+        >
+        
+        </Box>
       </Column>
     );
   }
