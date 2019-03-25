@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Row, Column, Box } from '../../layout';
+import { H1, P } from './Header.styled';
 
 class Header extends Component {
   render() {
@@ -8,20 +9,20 @@ class Header extends Component {
       <Box
         as="header"
         role="banner"
-        px="20px"
-        py="20px"
+        px="30px"
+        py="30px"
       > 
         <Row>
           <Column
             xs={12}
             sm={6}
           >
-            <h1>
+            <H1>
               Album list
-            </h1>
-            <p>
+            </H1>
+            <P>
               Top10
-            </p>
+            </P>
           </Column>
           <Column
             xs={12}
