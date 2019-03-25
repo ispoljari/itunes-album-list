@@ -275,30 +275,36 @@ const LayoutApi = styled.div`
     }};
 
     ${props => {
-      if (typeof(props.width) === 'string') {
+      if (typeof(props.width) === 'string' || typeof(props.height) === 'string') {
         return css`
-          width: ${props.width};
+          width: ${props.width ? props.width : ''};
+          height: ${props.height ? props.height : ''};
         `;
-      } else if (typeof(props.width) === 'object') {
+      } else if (typeof(props.width) === 'object' || typeof(props.height) === 'object') {
         return css`
           @media (max-width: 575px) {
-            width: ${props.width.xs ? props.width.xs : ''};
+            width: ${props.width && (props.width.xs ? props.width.xs : '')};
+            height: ${props.height && (props.height.xs ? props.height.xs : '')};
           }
 
           @media (min-width: 576px) {
-            width: ${props.width.sm ? props.width.sm : ''};
+            width: ${props.width && (props.width.sm ? props.width.sm : '')};
+            height: ${props.height && (props.height.sm ? props.height.sm : '')};
           }
           
           @media (min-width: 768px) {
-            width: ${props.width.md ? props.width.md : ''};
+            width: ${props.width && (props.width.md ? props.width.md : '')};
+            height: ${props.height && (props.height.md ? props.height.md : '')};
           }
           
           @media (min-width: 992px) {
-            width: ${props.width.lg ? props.width.lg : ''};
+            width: ${props.width && (props.width.lg ? props.width.lg : '')};
+            height: ${props.height && (props.height.lg ? props.height.lg : '')};
           }
           
           @media (min-width: 1200px) {
-            width: ${props.width.xl ? props.width.xl : ''};
+            width: ${props.width && (props.width.xl ? props.width.xl : '')};
+            height: ${props.height && (props.height.xl ? props.height.xl : '')};
           }
         `;
       }

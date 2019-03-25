@@ -13,8 +13,11 @@ class Albums extends Component {
         <Box
           px="10px"
           py="10px"
-        >
-        
+          width="170px"
+          height="170px"
+          backgroundColor="green"
+        > 
+          AlbImg
         </Box>
       </Column>
     );
