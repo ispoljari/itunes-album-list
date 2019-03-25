@@ -29,7 +29,7 @@ export const P = styled.p`
 export const Input = styled.input`
   width: 100%;
   font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1700 - 320)));
-  padding: 5px;
+  padding: 3px 5px;
   border: 1px solid #c1c1c1;
   border-radius: 5px;
 

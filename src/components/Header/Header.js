@@ -7,8 +7,6 @@ class Header extends Component {
   render() {
     return (
       <Box
-        as="header"
-        role="banner"
         px="30px"
         py="30px"
       > 
@@ -20,12 +18,17 @@ class Header extends Component {
             lg={7}
             xl={8}
           >
-            <H1>
-              Album list
-            </H1>
-            <P>
-              Top10
-            </P>
+            <Box
+              as="header"
+              role="banner"
+            >
+              <H1>
+                Album list
+              </H1>
+              <P>
+                Top10
+              </P>
+            </Box>
           </Column>
           <Column
             xs={12}
