@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+//  TODO: NON-DRY code segment. Abstract repetitive parts with media query templates
+
 const LayoutApi = styled.div`
   &&& { 
     ${props => {

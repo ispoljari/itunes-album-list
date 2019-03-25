@@ -13,8 +13,7 @@ class Albums extends Component {
         <Box
           px="10px"
           py="10px"
-          width="170px"
-          height="170px"
+          width={{xs:"50px", sm:"70px", md:"90px", lg:"110px", xl:"130px"}}
           backgroundColor="green"
         > 
           AlbImg
