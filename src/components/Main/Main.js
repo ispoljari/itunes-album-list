@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Albums } from '../index';
 import { Row, Column, Box } from '../../layout';
@@ -37,5 +38,14 @@ class Main extends Component {
     )
   }
 };
+
+Main.propTypes = {
+  data: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string.isRequired,
+    artist: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired
+  }).isRequired
+}
 
 export default Main;
