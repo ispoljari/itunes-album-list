@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Column, Box } from '../../layout';
 import { Button } from './LoadMore.styled';
@@ -6,7 +7,7 @@ import { Button } from './LoadMore.styled';
 class LoadMore extends Component {
   render() {
     const { onClick } = this.props;
-    
+
     return(
       <Column>
         <Box
@@ -23,6 +24,10 @@ class LoadMore extends Component {
       </Column>
     )
   }
+};
+
+LoadMore.propTypes = {
+  onClick: PropTypes.func.isRequired
 };
 
 export default LoadMore;
