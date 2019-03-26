@@ -26,7 +26,9 @@ const postTemplate = album => (
         maxWd={{xs:"100px"}}
         maxHg={{xs:"100px"}}
       >
-        <Img src={album.imgSrc} alt="placeholder"/>
+        <Img 
+          src={album.imgSrc} alt="placeholder"
+        />
       </Box>
       <Box
         pl="10px"
@@ -55,11 +57,17 @@ const postTemplate = album => (
 class Albums extends Component {
   render() {
     let results = [];
-    let { data } = this.props;
+    const { albums } = this.props;
+    const filteredData = {}
+    
+    Object.keys(albums).forEach(key => {
+      filteredData.imgSrc = albums[key]['im:image'][2].label;
+      filteredData.name = albums[key]['im:name'].label;
+      filteredData.artist = albums[key]['im:artist'].label;
+      filteredData.price = albums[key]['im:price'].label;
 
-    for (let i=0; i<10; i++) {
-      results.push(postTemplate(data))
-    }
+      results.push(postTemplate(filteredData));
+    });
     
     return (
       <React.Fragment>
@@ -70,12 +78,7 @@ class Albums extends Component {
 };
 
 Albums.propTypes = {
-  data: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    imgSrc: PropTypes.string.isRequired,
-    artist: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired
-  }).isRequired
+  albums: PropTypes.instanceOf(Object).isRequired
 };
 
 export default Albums;

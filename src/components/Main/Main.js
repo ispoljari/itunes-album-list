@@ -7,7 +7,7 @@ import { P } from '../../common';
 
 class Main extends Component {
   render() {
-    const { data } = this.props;
+    const { albums } = this.props;
     
     return (
       <Box
@@ -31,7 +31,7 @@ class Main extends Component {
           mt="20px"
         >
           <Albums 
-           data={data}
+           albums={albums}
           />
         </Row>
       </Box>
@@ -40,12 +40,7 @@ class Main extends Component {
 };
 
 Main.propTypes = {
-  data: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    imgSrc: PropTypes.string.isRequired,
-    artist: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired
-  }).isRequired
+  albums: PropTypes.instanceOf(Object).isRequired
 };
 
 export default Main;

@@ -11,7 +11,7 @@ const URL = 'https://itunes.apple.com/us/rss/topalbums/limit=10/json';
 class App extends Component {
   state= {
     loading: false,
-    albums: null,
+    albums: {},
     error: null
   }
 
@@ -50,13 +50,13 @@ class App extends Component {
         <GlobalStyle />
         <Container>
           <Header />
-          {/* <Spinner
+          <Spinner
             show={loading}
           >
             <Main 
-              data={albums}
+              albums={albums}
             />
-          </Spinner> */}
+          </Spinner>
         </Container>
       </React.Fragment>
     );
