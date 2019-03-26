@@ -46,6 +46,6 @@ Main.propTypes = {
     artist: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired
   }).isRequired
-}
+};
 
 export default Main;
