@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-//  TODO: NON-DRY code segment. Abstract repetitive parts with media query templates
+// refactor this code segment further, using a media-query templating function 
 
 const LayoutApi = styled.div`
   &&& { 

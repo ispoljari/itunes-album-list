@@ -29,53 +29,81 @@ const ColumnStyled = styled(LayoutApi)`
      return css`${sumCSS}`;
   }};
 
-  /* refactor this code segment using media templates */
+  /* refactor this code segment further, using a media-query templating function */
   
   @media (min-width: 576px) {
     ${props => {
+      let sumCSS = ``;
+
       if (props.sm) {
-        return css`
+        sumCSS += `
           flex-basis: ${props.sm/12*100}%;
-          margin-left: ${props.osm ? props.osm/12*100 : ''}%;
           max-width: ${props.sm/12*100}%;
         `;
+
+        if (props.osm) {
+          sumCSS += `margin-left: ${props.osm/12*100}%;`;
+        }
       }
+
+      return css`${sumCSS}`;
     }};
   };
 
   @media (min-width: 768px) {
     ${props => {
+      let sumCSS = ``;
+
       if (props.md) {
-        return css`
+        sumCSS += `
           flex-basis: ${props.md/12*100}%;
-          margin-left: ${props.omd ? props.omd/12*100 : ''}%;
           max-width: ${props.md/12*100}%;
         `;
+
+        if (props.omd) {
+          sumCSS += `margin-left: ${props.omd/12*100}%;`;
+        }
       }
+
+      return css`${sumCSS}`;
     }};
   };
 
   @media (min-width: 992px) {
     ${props => {
+      let sumCSS = ``;
+
       if (props.lg) {
-        return css`
+        sumCSS += `
           flex-basis: ${props.lg/12*100}%;
-          margin-left: ${props.olg ? props.olg/12*100 : ''}%;
           max-width: ${props.lg/12*100}%;
         `;
+
+        if (props.olg) {
+          sumCSS += `margin-left: ${props.olg/12*100}%;`;
+        }
       }
+
+      return css`${sumCSS}`;
     }};
   };
 
   @media (min-width: 1200px) {
     ${props => {
+      let sumCSS = ``;
+
       if (props.xl) {
-        return css`
+        sumCSS += `
           flex-basis: ${props.xl/12*100}%;
-          margin-left: ${props.oxl ? props.oxl/12*100 : ''}%;
           max-width: ${props.xl/12*100}%;
         `;
+
+        if (props.oxl) {
+          sumCSS += `margin-left: ${props.oxl/12*100}%;`;
+        }
       }
+
+      return css`${sumCSS}`;
     }};
   };
 `;

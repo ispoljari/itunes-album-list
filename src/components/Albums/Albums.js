@@ -20,10 +20,10 @@ const postTemplate = album => (
       borderRadius="5px"
     >
       <Box
-        width="170px"
-        height="170px"
-        maxWidth={{xs:"100px"}}
-        maxHeight={{xs:"100px"}}
+        wd="170px"
+        hg="170px"
+        maxWd={{xs:"100px"}}
+        maxHg={{xs:"100px"}}
       >
         <Img src={album.imgSrc} alt="placeholder"/>
       </Box>
