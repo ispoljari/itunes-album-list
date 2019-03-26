@@ -23,9 +23,6 @@ Row.propTypes = {
     PropTypes.node
   ]).isRequired,
   styles: PropTypes.shape({
-    flexFlow: PropTypes.string,
-    justifyContent: PropTypes.string,
-    alignItems: PropTypes.string,
     pl: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object
@@ -95,9 +92,6 @@ Row.propTypes = {
 
 Row.defaultProps = {
   styles: {
-    flexFlow: '',
-    justifyContent: '',
-    alignItems: '',
     pl: '',
     pr: '',
     pt: '',
