@@ -277,72 +277,72 @@ const LayoutApi = styled.div`
     }};
 
     ${props => {
-      if (typeof(props.width) === 'string' || typeof(props.height) === 'string') {
+      if (typeof(props.wd) === 'string' || typeof(props.hg) === 'string') {
         return css`
-          width: ${props.width ? props.width : ''};
-          height: ${props.height ? props.height : ''};
+          width: ${props.wd ? props.wd : ''};
+          height: ${props.hg ? props.hg : ''};
         `;
-      } else if (typeof(props.width) === 'object' || typeof(props.height) === 'object') {
+      } else if (typeof(props.wd) === 'object' || typeof(props.hg) === 'object') {
         return css`
           @media (max-width: 575px) {
-            width: ${props.width && (props.width.xs ? props.width.xs : '')};
-            height: ${props.height && (props.height.xs ? props.height.xs : '')};
+            width: ${props.wd && (props.wd.xs ? props.wd.xs : '')};
+            height: ${props.hg && (props.hg.xs ? props.hg.xs : '')};
           }
 
           @media (min-width: 576px) {
-            width: ${props.width && (props.width.sm ? props.width.sm : '')};
-            height: ${props.height && (props.height.sm ? props.height.sm : '')};
+            width: ${props.wd && (props.wd.sm ? props.wd.sm : '')};
+            height: ${props.hg && (props.hg.sm ? props.hg.sm : '')};
           }
           
           @media (min-width: 768px) {
-            width: ${props.width && (props.width.md ? props.width.md : '')};
-            height: ${props.height && (props.height.md ? props.height.md : '')};
+            width: ${props.wd && (props.wd.md ? props.wd.md : '')};
+            height: ${props.hg && (props.hg.md ? props.hg.md : '')};
           }
           
           @media (min-width: 992px) {
-            width: ${props.width && (props.width.lg ? props.width.lg : '')};
-            height: ${props.height && (props.height.lg ? props.height.lg : '')};
+            width: ${props.wd && (props.wd.lg ? props.wd.lg : '')};
+            height: ${props.hg && (props.hg.lg ? props.hg.lg : '')};
           }
           
           @media (min-width: 1200px) {
-            width: ${props.width && (props.width.xl ? props.width.xl : '')};
-            height: ${props.height && (props.height.xl ? props.height.xl : '')};
+            width: ${props.wd && (props.wd.xl ? props.wd.xl : '')};
+            height: ${props.hg && (props.hg.xl ? props.hg.xl : '')};
           }
         `;
       }
     }};
 
     ${props => {
-      if (typeof(props.maxWidth) === 'string' || typeof(props.maxHeight) === 'string') {
+      if (typeof(props.maxWd) === 'string' || typeof(props.maxHg) === 'string') {
         return css`
-          max-width: ${props.maxWidth ? props.maxWidth : ''};
-          max-height: ${props.maxHeight ? props.maxHeight : ''};
+          max-width: ${props.maxWd ? props.maxWd : ''};
+          max-height: ${props.maxHg ? props.maxHg : ''};
         `;
-      } else if (typeof(props.maxWidth) === 'object' || typeof(props.maxHeight) === 'object') {
+      } else if (typeof(props.maxWd) === 'object' || typeof(props.maxHg) === 'object') {
         return css`
           @media (max-width: 575px) {
-            max-width: ${props.maxWidth && (props.maxWidth.xs ? props.maxWidth.xs : '')};
-            max-height: ${props.maxHeight && (props.maxHeight.xs ? props.maxHeight.xs : '')};
+            max-width: ${props.maxWd && (props.maxWd.xs ? props.maxWd.xs : '')};
+            max-height: ${props.maxHg && (props.maxHg.xs ? props.maxHg.xs : '')};
           }
 
           @media (min-width: 576px) {
-            max-width: ${props.maxWidth && (props.maxWidth.sm ? props.maxWidth.sm : '')};
-            max-height: ${props.maxHeight && (props.maxHeight.sm ? props.maxHeight.sm : '')};
+            max-width: ${props.maxWd && (props.maxWd.sm ? props.maxWd.sm : '')};
+            max-height: ${props.maxHg && (props.maxHg.sm ? props.maxHg.sm : '')};
           }
           
           @media (min-width: 768px) {
-            max-width: ${props.maxWidth && (props.maxWidth.md ? props.maxWidth.md : '')};
-            max-height: ${props.maxHeight && (props.maxHeight.md ? props.maxHeight.md : '')};
+            max-width: ${props.maxWd && (props.maxWd.md ? props.maxWd.md : '')};
+            max-height: ${props.maxHg && (props.maxHg.md ? props.maxHg.md : '')};
           }
           
           @media (min-width: 992px) {
-            max-width: ${props.maxWidth && (props.maxWidth.lg ? props.maxWidth.lg : '')};
-            max-height: ${props.maxHeight && (props.maxHeight.lg ? props.maxHeight.lg : '')};
+            max-width: ${props.maxWd && (props.maxWd.lg ? props.maxWd.lg : '')};
+            max-height: ${props.maxHg && (props.maxHg.lg ? props.maxHg.lg : '')};
           }
           
           @media (min-width: 1200px) {
-            max-width: ${props.maxWidth && (props.maxWidth.xl ? props.maxWidth.xl : '')};
-            max-height: ${props.maxHeight && (props.maxHeight.xl ? props.maxHeight.xl : '')};
+            max-width: ${props.maxWd && (props.maxWd.xl ? props.maxWd.xl : '')};
+            max-height: ${props.maxHg && (props.maxHg.xl ? props.maxHg.xl : '')};
           }
         `;
       }
