@@ -73,7 +73,23 @@ Row.propTypes = {
     my: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object
-    ])
+    ]),
+    wd: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    hg: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    maxWd: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    maxHg: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
   })
 };
 
@@ -93,7 +109,11 @@ Row.defaultProps = {
     mt: '',
     mb: '',
     mx: '',
-    my: ''
+    my: '',
+    wd: '',
+    hg: '',
+    maxWd: '',
+    maxHg: ''
   }
 };
 

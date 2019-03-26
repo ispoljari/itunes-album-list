@@ -23,6 +23,12 @@ Box.propTypes = {
     PropTypes.node
   ]).isRequired,
   styles: PropTypes.shape({
+    dsPlay: PropTypes.string,
+    alignItems: PropTypes.string,
+    justifyContent: PropTypes.string,
+    flexDirection: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    borderRadius: PropTypes.string,
     pl: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object
@@ -70,12 +76,34 @@ Box.propTypes = {
     my: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object
-    ])
+    ]),
+    wd: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    hg: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    maxWd: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    maxHg: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
   })
 };
 
 Box.defaultProps = {
   styles: {
+    dsPlay: '',
+    alignItems: '',
+    justifyContent: '',
+    flexDirection: '',
+    backgroundColor: '',
+    borderRadius: '',
     pl: '',
     pr: '',
     pt: '',
@@ -87,7 +115,11 @@ Box.defaultProps = {
     mt: '',
     mb: '',
     mx: '',
-    my: ''
+    my: '',
+    wd: '',
+    hg: '',
+    maxWd: '',
+    maxHg: ''
   }
 };
 
