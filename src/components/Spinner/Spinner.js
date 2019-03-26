@@ -12,17 +12,7 @@ class Spinner extends Component {
 
   render() {
     const { show, children } = this.props;
-    if (show) {
-      return (
-        <Loader />
-      );
-    } else {
-      return (
-        <React.Fragment>
-          {children}
-        </React.Fragment>
-      );
-    }
+    return show ? <Loader /> : <React.Fragment>{children}</React.Fragment>
   }
 };
 
