@@ -2,64 +2,38 @@ import styled, { css } from 'styled-components';
 
 import { LayoutApi } from '../../common';
 
-// TODO: refactor to remove repeating code segments
-
 const BoxStyled = styled(LayoutApi)`
-  ${props => {
-    if (props.display) {
-      return css`
-        display: ${props.display};
-      `;
-    }
-  }};
 
   ${props => {
-    if (props.border) {
-      return css`
-        border: ${props.border};
-      `;
-    }
-  }};
+    let sumCSS = ``;
 
-${props => {
-    if (props.borderRadius) {
-      return css`
-        border-radius: ${props.borderRadius};
-      `;
+    if (props.dsPlay) {
+      sumCSS += `display: ${props.dsPlay};`;
     }
-  }};
 
-  ${props => {
-    if (props.flexDirection) {
-      return css`
-        flex-direction: ${props.flexDirection};
-      `;
-    }
-  }};
-
-  ${props => {
-    if (props.justifyContent) {
-      return css`
-        justify-content: ${props.justifyContent};
-      `;
-    }
-  }}; 
-
-  ${props => {
     if (props.alignItems) {
-      return css`
-        align-items: ${props.alignItems};
-      `;
+      sumCSS += `align-items: ${props.alignItems};`;
     }
-  }};
+    
+    if (props.justifyContent) {
+      sumCSS += `justify-content: ${props.justifyContent};`;
+    }
+    
+    if (props.flexDirection) {
+      sumCSS += `flex-direction: ${props.flexDirection};`;
+    }
 
-  ${props => {
     if (props.backgroundColor) {
-      return css`
-        background-color: ${props.backgroundColor};
-      `;
+      sumCSS += `background-color: ${props.backgroundColor};`;
     }
+
+    if (props.borderRadius) {
+      sumCSS += `border-radius: ${props.borderRadius};`;
+    }
+
+    return css`${sumCSS}`;
   }};
+  
 `;
 
 export default BoxStyled;

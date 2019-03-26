@@ -13,7 +13,7 @@ const postTemplate = album => (
     key={uuidv4()}
   >
     <Box
-      display="flex"
+      dsPlay="flex"
       backgroundColor="white"
       px="15px"
       py="15px"      
@@ -29,7 +29,7 @@ const postTemplate = album => (
       </Box>
       <Box
         pl="10px"
-        display="flex"
+        dsPlay="flex"
         flexDirection="column"
         justifyContent="space-around"
       >
