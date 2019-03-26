@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import { Albums } from '../index';
 import { Row, Column, Box } from '../../layout';
 import { P } from '../../common';
+import { Spinner } from '../';
 
 class Main extends Component {
   render() {
-    const { albums } = this.props;
+    const { albums, loading } = this.props;
     
     return (
       <Box
@@ -30,9 +31,13 @@ class Main extends Component {
         <Row
           mt="20px"
         >
-          <Albums 
-           albums={albums}
-          />
+          <Spinner
+            show={loading}
+          >
+            <Albums 
+              albums={albums}
+            />
+          </Spinner>
         </Row>
       </Box>
     )

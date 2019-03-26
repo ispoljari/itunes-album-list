@@ -3,7 +3,7 @@ import { Normalize } from 'styled-normalize';
 
 import GlobalStyle from './Global.styled';
 import { Container } from './layout';
-import { Header, Main, Spinner } from './components';
+import { Header, Main } from './components';
 import { fetchData } from './common';
 
 const URL = 'https://itunes.apple.com/us/rss/topalbums/limit=10/json';
@@ -50,13 +50,10 @@ class App extends Component {
         <GlobalStyle />
         <Container>
           <Header />
-          <Spinner
-            show={loading}
-          >
-            <Main 
-              albums={albums}
-            />
-          </Spinner>
+          <Main 
+            albums={albums}
+            loading={loading}
+          />
         </Container>
       </React.Fragment>
     );
