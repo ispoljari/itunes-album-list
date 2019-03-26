@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+// refactor this code segment further, using a media-query templating function 
+
 const LayoutApi = styled.div`
   &&& { 
     ${props => {
@@ -269,6 +271,78 @@ const LayoutApi = styled.div`
           @media (min-width: 1200px) {
             margin-top: ${props.my.xl ? props.my.xl : ''};
             margin-bottom: ${props.my.xl ? props.my.xl : ''};
+          }
+        `;
+      }
+    }};
+
+    ${props => {
+      if (typeof(props.wd) === 'string' || typeof(props.hg) === 'string') {
+        return css`
+          width: ${props.wd ? props.wd : ''};
+          height: ${props.hg ? props.hg : ''};
+        `;
+      } else if (typeof(props.wd) === 'object' || typeof(props.hg) === 'object') {
+        return css`
+          @media (max-width: 575px) {
+            width: ${props.wd && (props.wd.xs ? props.wd.xs : '')};
+            height: ${props.hg && (props.hg.xs ? props.hg.xs : '')};
+          }
+
+          @media (min-width: 576px) {
+            width: ${props.wd && (props.wd.sm ? props.wd.sm : '')};
+            height: ${props.hg && (props.hg.sm ? props.hg.sm : '')};
+          }
+          
+          @media (min-width: 768px) {
+            width: ${props.wd && (props.wd.md ? props.wd.md : '')};
+            height: ${props.hg && (props.hg.md ? props.hg.md : '')};
+          }
+          
+          @media (min-width: 992px) {
+            width: ${props.wd && (props.wd.lg ? props.wd.lg : '')};
+            height: ${props.hg && (props.hg.lg ? props.hg.lg : '')};
+          }
+          
+          @media (min-width: 1200px) {
+            width: ${props.wd && (props.wd.xl ? props.wd.xl : '')};
+            height: ${props.hg && (props.hg.xl ? props.hg.xl : '')};
+          }
+        `;
+      }
+    }};
+
+    ${props => {
+      if (typeof(props.maxWd) === 'string' || typeof(props.maxHg) === 'string') {
+        return css`
+          max-width: ${props.maxWd ? props.maxWd : ''};
+          max-height: ${props.maxHg ? props.maxHg : ''};
+        `;
+      } else if (typeof(props.maxWd) === 'object' || typeof(props.maxHg) === 'object') {
+        return css`
+          @media (max-width: 575px) {
+            max-width: ${props.maxWd && (props.maxWd.xs ? props.maxWd.xs : '')};
+            max-height: ${props.maxHg && (props.maxHg.xs ? props.maxHg.xs : '')};
+          }
+
+          @media (min-width: 576px) {
+            max-width: ${props.maxWd && (props.maxWd.sm ? props.maxWd.sm : '')};
+            max-height: ${props.maxHg && (props.maxHg.sm ? props.maxHg.sm : '')};
+          }
+          
+          @media (min-width: 768px) {
+            max-width: ${props.maxWd && (props.maxWd.md ? props.maxWd.md : '')};
+            max-height: ${props.maxHg && (props.maxHg.md ? props.maxHg.md : '')};
+          }
+          
+          @media (min-width: 992px) {
+            max-width: ${props.maxWd && (props.maxWd.lg ? props.maxWd.lg : '')};
+            max-height: ${props.maxHg && (props.maxHg.lg ? props.maxHg.lg : '')};
+          }
+          
+          @media (min-width: 1200px) {
+            max-width: ${props.maxWd && (props.maxWd.xl ? props.maxWd.xl : '')};
+            max-height: ${props.maxHg && (props.maxHg.xl ? props.maxHg.xl : '')};
           }
         `;
       }

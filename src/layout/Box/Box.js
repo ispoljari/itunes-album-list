@@ -1,38 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import ColumnStyled from './Column.styled';
+import BoxStyled from './Box.styled';
 
-class Column extends Component {
+class Box extends Component {
   render() {
     const {children, ...styles} = this.props;
 
     return (
-      <ColumnStyled 
+      <BoxStyled 
         {...styles}
       >
         {children}
-      </ColumnStyled>
+      </BoxStyled>
     );
   }
 };
 
-Column.propTypes = {
+Box.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
   styles: PropTypes.shape({
-    xs: PropTypes.number,
-    sm: PropTypes.number,
-    md: PropTypes.number,
-    lg: PropTypes.number,
-    xl: PropTypes.number,
-    oxs: PropTypes.number,
-    osm: PropTypes.number,
-    omd: PropTypes.number,
-    olg: PropTypes.number,
-    oxl: PropTypes.number,
+    dsPlay: PropTypes.string,
+    alignItems: PropTypes.string,
+    justifyContent: PropTypes.string,
+    flexDirection: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    borderRadius: PropTypes.string,
     pl: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object
@@ -100,18 +96,14 @@ Column.propTypes = {
   })
 };
 
-Column.defaultProps = {
+Box.defaultProps = {
   styles: {
-    xs: NaN,
-    sm: NaN,
-    md: NaN,
-    lg: NaN,
-    xl: NaN,
-    oxs: NaN,
-    osm: NaN,
-    omd: NaN,
-    olg: NaN,
-    oxl: NaN,
+    dsPlay: '',
+    alignItems: '',
+    justifyContent: '',
+    flexDirection: '',
+    backgroundColor: '',
+    borderRadius: '',
     pl: '',
     pr: '',
     pt: '',
@@ -131,4 +123,4 @@ Column.defaultProps = {
   }
 };
 
-export default Column;
+export default Box;
