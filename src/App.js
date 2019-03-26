@@ -20,7 +20,9 @@ class App extends Component {
       error: null,
       limit: prevState.limit + 10
     }), () => {
-      this.loadResultsFromAPI();
+      this.loadResultsFromAPI().then(() => {
+        window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+      });
     });
   }
 
@@ -42,6 +44,8 @@ class App extends Component {
         loading: false
       });
     }
+
+    return;
   }
 
   componentDidMount() {
@@ -49,7 +53,7 @@ class App extends Component {
   }
 
   render() {
-    const { loading, albums, error } = this.state;
+    const { loading, albums, error, limit } = this.state;
 
     return (
       <React.Fragment>
