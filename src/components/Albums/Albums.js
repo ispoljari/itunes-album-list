@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 
 import { Column, Box } from '../../layout';
@@ -66,6 +67,15 @@ class Albums extends Component {
       </React.Fragment>
     );
   }
+};
+
+Albums.propTypes = {
+  data: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string.isRequired,
+    artist: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default Albums;
