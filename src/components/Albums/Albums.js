@@ -34,21 +34,16 @@ const postTemplate = album => (
         pl="10px"
         dsPlay="flex"
         flexDirection="column"
-        justifyContent="space-around"
+        justifyContent="flex-start"
       >
-        <Box>
-          <H2>{album.name}</H2>
-          <P
-            mt="5px"
-          >
-            {album.artist}
-          </P>
-        </Box>
-        <Box>
-          <P>
-            {album.price}
-          </P>
-        </Box>
+        <H2>
+          {album.name}
+        </H2>
+        <P
+          mt="5px"
+        >
+          {album.artist}
+        </P>
       </Box>
     </Box>
   </Column>

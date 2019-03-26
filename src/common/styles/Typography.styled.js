@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
 
 export const P = styled.p`
-  font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1700 - 320)));
+  font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1700 - 320)));
   color: ${props => props.light ? '#bebebe' : '#969696'};
+  text-transform: uppercase;
 
   ${props => {
     if (props.mt) {
@@ -13,10 +14,10 @@ export const P = styled.p`
   }}
 
   @media (min-width: 1700px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   @media (max-width: 320px) {
-    font-size: 14px;
+    font-size: 12px;
   }
 `;
