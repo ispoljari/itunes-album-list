@@ -9,20 +9,28 @@ const ColumnStyled = styled(LayoutApi)`
   /* Column API */;
 
   ${props => {
+    let sumCSS = ``;
+
      if (props.xs) {
-      return css`
+      sumCSS += `
         flex-basis: ${props.xs/12*100}%;
-        margin-left: ${props.oxs ? props.oxs/12*100 : ''}%;
         max-width: ${props.xs/12*100}%;
       `;
+      if (props.oxs) {
+        sumCSS += `margin-left: ${props.oxs/12*100}%;`;
+      }
      } else {
-      return css`
-        flex-basis: 100%;
-        max-width: 100%;
+       sumCSS += `
+       flex-basis: 100%;
+       max-width: 100%;
       `;
      }
+
+     return css`${sumCSS}`;
   }};
 
+  /* refactor this code segment using media templates */
+  
   @media (min-width: 576px) {
     ${props => {
       if (props.sm) {
