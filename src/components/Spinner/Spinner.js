@@ -11,8 +11,8 @@ class Spinner extends Component {
   }
 
   render() {
-    const { show, children } = this.props;
-    return show ? <Loader /> : <React.Fragment>{children}</React.Fragment>
+    const { show } = this.props;
+    return show ? <Loader /> : null
   }
 };
 

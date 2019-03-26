@@ -31,13 +31,12 @@ class Main extends Component {
         <Row
           mt="20px"
         >
+          <Albums 
+            albums={albums}
+          />
           <Spinner
             show={loading}
-          >
-            <Albums 
-              albums={albums}
-            />
-          </Spinner>
+          />
         </Row>
       </Box>
     )
