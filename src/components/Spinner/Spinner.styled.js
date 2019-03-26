@@ -11,8 +11,9 @@ const spin = keyframes`
 `;
 
 const Loader = styled.div`
+  margin: 20px auto 0 auto;
   border: 16px solid #f3f3f3;
-  border-top: 16px solid #3498db;
+  border-top: 16px solid #969696;
   border-radius: 50%;
   width: 120px;
   height: 120px;
