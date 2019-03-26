@@ -10,7 +10,7 @@ const spin = keyframes`
   }
 `;
 
-const loader = styled.div`
+const Loader = styled.div`
   border: 16px solid #f3f3f3;
   border-top: 16px solid #3498db;
   border-radius: 50%;
@@ -19,4 +19,4 @@ const loader = styled.div`
   animation: ${spin} 2s linear infinite;
 `;
 
-export default loader;
+export default Loader;

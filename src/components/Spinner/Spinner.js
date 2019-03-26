@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Loader from './Spinner.styled';
+
 class Spinner extends Component {
   constructor(props) {
     super(props);
@@ -12,9 +14,7 @@ class Spinner extends Component {
     const { show } = this.props;
     if (show) {
       return (
-        <div>
-          
-        </div>
+        <Loader />
       );
     } else {
       return null;
