@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import LoadMore from './LoadMore';
 
@@ -12,6 +12,17 @@ describe('<LoadMore />', () => {
         onClick={callback}
       />
     );
-  })
+  });
+
+  it('Should call onClick callback when button is clicked', () => {
+    const callback = jest.fn();
+    const wrapper = mount(
+      <LoadMore
+        onClick={callback}
+      />
+    );
+    wrapper.find('button').simulate('click');
+    expect(callback).toHaveBeenCalled();
+  });
 });
 
