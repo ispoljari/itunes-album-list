@@ -4,41 +4,37 @@ import { Normalize } from 'styled-normalize';
 import GlobalStyle from './Global.styled';
 import { Container } from './layout';
 import { Header, Main, Spinner } from './components';
+import { fetchData } from './common';
 
 const URL = 'https://itunes.apple.com/us/rss/topalbums/limit=10/json';
 
 class App extends Component {
   state= {
-    template: {
-      name: 'Album',
-      imgSrc: 'https://via.placeholder.com/170',
-      artist: "Artist Name",
-      price: '6.99$'
-    },
     loading: false,
-    data: null
+    albums: null,
+    error: null
   }
 
   loadAlbums = async () => {
-    try {
       this.setState({
         loading: true,
-        error: false
+        error: null
       });
 
-      const rawData = await fetch(URL);
-      const data = await rawData.json();
+      const results = await fetchData(URL);
 
-      this.setState({
-        loading: false,
-        data
-      });
-    } catch (error) {
-      this.setState({
-        loading: false,
-        error: true
-      });
-    }
+      if(results !== Error) {
+        console.log(results);
+        this.setState({
+          albums: results.feed.entry,
+          loading: false
+        });
+      } else {
+        this.setState({
+          error: true,
+          loading: false
+        });
+      }
   }
 
   componentDidMount() {
@@ -46,9 +42,7 @@ class App extends Component {
   }
 
   render() {
-    const { template, loading, data } = this.state;
-    console.log(loading);
-    console.log(data);
+    const { loading, albums } = this.state;
 
     return (
       <React.Fragment>
@@ -56,13 +50,13 @@ class App extends Component {
         <GlobalStyle />
         <Container>
           <Header />
-          <Spinner
+          {/* <Spinner
             show={loading}
           >
             <Main 
-              data={template}
+              data={albums}
             />
-          </Spinner>
+          </Spinner> */}
         </Container>
       </React.Fragment>
     );
