@@ -1,21 +1,9 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { withLayoutContent } from '../../common/';
 import StyledContainer from './Container.styled';
 
-class Container extends Component {
-  render() {
-    const {children, ...styles} = this.props;
-
-    return (
-      <StyledContainer 
-        {...styles}
-      >
-        {children}
-      </StyledContainer>
-    )
-  }
-};
+const Container = withLayoutContent(StyledContainer);
 
 Container.propTypes = {
   children: PropTypes.oneOfType([

@@ -1,21 +1,9 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { withLayoutContent } from '../../common/';
 import ColumnStyled from './Column.styled';
 
-class Column extends Component {
-  render() {
-    const {children, ...styles} = this.props;
-
-    return (
-      <ColumnStyled 
-        {...styles}
-      >
-        {children}
-      </ColumnStyled>
-    );
-  }
-};
+const Column = withLayoutContent(ColumnStyled);
 
 Column.propTypes = {
   children: PropTypes.oneOfType([

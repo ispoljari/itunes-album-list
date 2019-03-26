@@ -1,21 +1,9 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { withLayoutContent } from '../../common/';
 import RowStyled from './Row.styled';
 
-class Row extends Component {
-  render() {
-    const {children, ...styles} = this.props;
-
-    return (
-      <RowStyled 
-        {...styles}
-      >
-        {children}
-      </RowStyled>
-    );
-  }
-};
+const Row = withLayoutContent(RowStyled);
 
 Row.propTypes = {
   children: PropTypes.oneOfType([
