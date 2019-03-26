@@ -73,7 +73,11 @@ class Albums extends Component {
 };
 
 Albums.propTypes = {
-  albums: PropTypes.instanceOf(Object).isRequired
+  albums: PropTypes.instanceOf(Object)
+};
+
+Albums.defaultProps = {
+  error: ''
 };
 
 export default Albums;

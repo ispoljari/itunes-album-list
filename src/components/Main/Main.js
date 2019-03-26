@@ -8,7 +8,7 @@ import { Spinner } from '../';
 
 class Main extends Component {
   render() {
-    const { albums, loading } = this.props;
+    const { albums, loading, error } = this.props;
     
     return (
       <Box
@@ -45,7 +45,14 @@ class Main extends Component {
 };
 
 Main.propTypes = {
-  albums: PropTypes.instanceOf(Object).isRequired
+  albums: PropTypes.instanceOf(Object),
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string
+};
+
+Main.defaultProps = {
+  albums: {},
+  error: ''
 };
 
 export default Main;

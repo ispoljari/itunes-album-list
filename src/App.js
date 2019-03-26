@@ -6,21 +6,21 @@ import { Container } from './layout';
 import { Header, Main } from './components';
 import { fetchData } from './common';
 
-const URL = 'https://itunes.apple.com/us/rss/topalbums/limit=10/json';
-
 class App extends Component {
   state= {
     loading: false,
+    limit: 10,
     albums: {},
-    error: null
+    error: ''
   }
 
   loadAlbums = async () => {
       this.setState({
         loading: true,
-        error: null
+        error: ''
       });
 
+      const URL = `https://itunes.apple.com/us/rss/topalbums/limit=${this.state.limit}/json`;
       const results = await fetchData(URL);
 
       if(results !== Error) {
@@ -31,7 +31,7 @@ class App extends Component {
         });
       } else {
         this.setState({
-          error: true,
+          error: results,
           loading: false
         });
       }
@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   render() {
-    const { loading, albums } = this.state;
+    const { loading, albums, error } = this.state;
 
     return (
       <React.Fragment>
@@ -53,6 +53,7 @@ class App extends Component {
           <Main 
             albums={albums}
             loading={loading}
+            error={error}
           />
         </Container>
       </React.Fragment>
