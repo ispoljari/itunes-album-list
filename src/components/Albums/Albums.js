@@ -54,15 +54,10 @@ const postTemplate = album => (
 class Albums extends Component {
   render() {
     let results = [];
-    let template = {
-      name: 'Album',
-      imgSrc: 'https://via.placeholder.com/170',
-      artist: "Artist Name",
-      price: '6.99$'
-    }
+    let { data } = this.props;
 
     for (let i=0; i<10; i++) {
-      results.push(postTemplate(template))
+      results.push(postTemplate(data))
     }
     
     return (
@@ -74,4 +69,3 @@ class Albums extends Component {
 };
 
 export default Albums;
-

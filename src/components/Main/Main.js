@@ -6,6 +6,8 @@ import { P } from '../../common';
 
 class Main extends Component {
   render() {
+    const { data } = this.props;
+    
     return (
       <Box
         as="main"
@@ -27,7 +29,9 @@ class Main extends Component {
         <Row
           mt="20px"
         >
-          <Albums />
+          <Albums 
+           data={data}
+          />
         </Row>
       </Box>
     )
