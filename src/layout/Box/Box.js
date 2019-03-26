@@ -1,21 +1,9 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { withLayoutContent } from '../../common/';
 import BoxStyled from './Box.styled';
 
-class Box extends Component {
-  render() {
-    const {children, ...styles} = this.props;
-
-    return (
-      <BoxStyled 
-        {...styles}
-      >
-        {children}
-      </BoxStyled>
-    );
-  }
-};
+const Box = withLayoutContent(BoxStyled);
 
 Box.propTypes = {
   children: PropTypes.oneOfType([
