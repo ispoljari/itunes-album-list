@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 
 import { Column, Box } from '../../layout';
-import { P } from '../../common';
+import { P, filterData } from '../../common';
 import { Img, H2 } from './Albums.styled';
 
 const postTemplate = album => (
@@ -16,8 +16,8 @@ const postTemplate = album => (
     <Box
       dsPlay="flex"
       backgroundColor="white"
-      px="15px"
-      py="15px"      
+      px="10px"
+      py="10px"      
       borderRadius="5px"
     >
       <Box
@@ -53,14 +53,9 @@ class Albums extends Component {
   render() {
     let results = [];
     const { albums } = this.props;
-    const filteredData = {}
     
     Object.keys(albums).forEach(key => {
-      filteredData.imgSrc = albums[key]['im:image'][2].label;
-      filteredData.name = albums[key]['im:name'].label;
-      filteredData.artist = albums[key]['im:artist'].label;
-      filteredData.price = albums[key]['im:price'].label;
-
+      const filteredData = filterData(albums[key]);
       results.push(postTemplate(filteredData));
     });
     

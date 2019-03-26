@@ -6,13 +6,13 @@ export const Img = styled.img`
 `;
 
 export const H2 = styled.h2`
-  font-size: calc(18px + (24 - 18) * ((100vw - 320px) / (1700 - 320)));
+  font-size: calc(16px + (22 - 16) * ((100vw - 320px) / (1700 - 320)));
 
   @media (min-width: 1700px) {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   @media (max-width: 320px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
