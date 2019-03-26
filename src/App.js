@@ -11,30 +11,32 @@ class App extends Component {
     loading: false,
     limit: 0,
     albums: {},
-    error: ''
+    error: null
   }
 
-  loadAlbums = async () => {
-    this.setState({
-      limit: this.state.limit + 10
-    }, () => {
+  loadAlbums = () => {
+    this.setState(prevState => ({
+      loading: true,
+      error: null,
+      limit: prevState.limit + 10
+    }), () => {
       this.loadResultsFromAPI();
     });
   }
 
   loadResultsFromAPI = async () => {
-    this.setState({
-      loading: true,
-      error: ''
-    });
-
     const URL = `https://itunes.apple.com/us/rss/topalbums/limit=${this.state.limit}/json`;
     const results = await fetchData(URL);
 
-    if(results !== Error) {
+    if(!(results instanceof Error)) {
       console.log(results);
+      console.log(typeof(results));
+
       this.setState({
-        albums: {...results.feed.entry},
+        albums: {
+          ...this.state.albums,
+          ...results.feed.entry
+        },
         loading: false
       });
     } else {

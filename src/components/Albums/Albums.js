@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 
 import { Column, Box } from '../../layout';
-import { P, filterData } from '../../common';
+import { P } from '../../common';
 import { Img, H2 } from './Albums.styled';
 
 const postTemplate = album => (
@@ -49,15 +49,43 @@ const postTemplate = album => (
   </Column>
 );
 
+const filterData = data => {
+  const filteredData = {};
+  
+  filteredData.imgSrc = data['im:image'][2].label;
+  filteredData.name = data['im:name'].label;
+  filteredData.artist = data['im:artist'].label;
+  filteredData.price = data['im:price'].label;
+
+  return filteredData;
+}
+
+const errorMessage = error => (
+  <Column
+    key={uuidv4()}
+  >
+    <P
+      error
+      textAlign="center"
+    >
+      {error.message}
+    </P>
+  </Column>
+);
+
 class Albums extends Component {
   render() {
     let results = [];
-    const { albums } = this.props;
+    const { albums, error } = this.props;
     
-    Object.keys(albums).forEach(key => {
-      const filteredData = filterData(albums[key]);
-      results.push(postTemplate(filteredData));
-    });
+    if (!error) {
+      Object.keys(albums).forEach(key => {
+        const filteredData = filterData(albums[key]);
+        results.push(postTemplate(filteredData));
+      });
+    } else {
+      results.push(errorMessage(error));
+    }
     
     return (
       <React.Fragment>
@@ -68,11 +96,13 @@ class Albums extends Component {
 };
 
 Albums.propTypes = {
-  albums: PropTypes.instanceOf(Object)
+  albums: PropTypes.instanceOf(Object),
+  error: PropTypes.instanceOf(Object),
 };
 
 Albums.defaultProps = {
-  error: ''
+  albums: {},
+  error: null
 };
 
 export default Albums;

@@ -33,15 +33,16 @@ class Main extends Component {
         >
           <Albums 
             albums={albums}
+            error={error}
           />
         </Row>
         <Row
           mt="10px"
         >
-          {loading ? null : 
-          <LoadMore 
-            onClick={onClick}
-          />
+          {(error || loading) ? null : 
+            <LoadMore 
+              onClick={onClick}
+            />
           }
           <Spinner
             show={loading}
@@ -55,12 +56,13 @@ class Main extends Component {
 Main.propTypes = {
   albums: PropTypes.instanceOf(Object),
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string
+  error: PropTypes.instanceOf(Object),
+  onClick: PropTypes.func.isRequired
 };
 
 Main.defaultProps = {
   albums: {},
-  error: ''
+  error: null
 };
 
 export default Main;
