@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Loader from './Spinner.styled';
 
@@ -14,6 +15,14 @@ class Spinner extends Component {
     const { show } = this.props;
     return show ? <Loader /> : null
   }
+};
+
+Spinner.propTypes = {
+  show: PropTypes.bool
+};
+
+Spinner.defaultProps = {
+  show: false
 };
 
 export default Spinner;
