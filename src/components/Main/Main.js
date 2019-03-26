@@ -8,7 +8,7 @@ import { Spinner } from '../';
 
 class Main extends Component {
   render() {
-    const { albums, loading, error } = this.props;
+    const { albums, loading, error, onClick } = this.props;
     
     return (
       <Box
@@ -38,7 +38,11 @@ class Main extends Component {
         <Row
           mt="10px"
         >
-          {loading ? null : <LoadMore />}
+          {loading ? null : 
+          <LoadMore 
+            onClick={onClick}
+          />
+          }
           <Spinner
             show={loading}
           />

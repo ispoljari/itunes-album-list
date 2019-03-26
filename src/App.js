@@ -9,32 +9,40 @@ import { fetchData } from './common';
 class App extends Component {
   state= {
     loading: false,
-    limit: 10,
+    limit: 0,
     albums: {},
     error: ''
   }
 
   loadAlbums = async () => {
+    this.setState({
+      limit: this.state.limit + 10
+    }, () => {
+      this.loadResultsFromAPI();
+    });
+  }
+
+  loadResultsFromAPI = async () => {
+    this.setState({
+      loading: true,
+      error: ''
+    });
+
+    const URL = `https://itunes.apple.com/us/rss/topalbums/limit=${this.state.limit}/json`;
+    const results = await fetchData(URL);
+
+    if(results !== Error) {
+      console.log(results);
       this.setState({
-        loading: true,
-        error: ''
+        albums: {...results.feed.entry},
+        loading: false
       });
-
-      const URL = `https://itunes.apple.com/us/rss/topalbums/limit=${this.state.limit}/json`;
-      const results = await fetchData(URL);
-
-      if(results !== Error) {
-        console.log(results);
-        this.setState({
-          albums: results.feed.entry,
-          loading: false
-        });
-      } else {
-        this.setState({
-          error: results,
-          loading: false
-        });
-      }
+    } else {
+      this.setState({
+        error: results,
+        loading: false
+      });
+    }
   }
 
   componentDidMount() {
@@ -54,6 +62,7 @@ class App extends Component {
             albums={albums}
             loading={loading}
             error={error}
+            onClick={this.loadAlbums}
           />
         </Container>
       </React.Fragment>

@@ -5,13 +5,18 @@ import { Button } from './LoadMore.styled';
 
 class LoadMore extends Component {
   render() {
+    const { onClick } = this.props;
+    
     return(
       <Column>
         <Box
           dsPlay="flex"
           justifyContent="center"
         >
-          <Button>
+          <Button
+            type="button"
+            onClick={onClick}
+          >
             Load more albums
           </Button>
         </Box>
