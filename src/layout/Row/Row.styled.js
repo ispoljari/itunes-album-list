@@ -4,20 +4,9 @@ import { LayoutApi } from '../../common';
 
 const RowStyled = styled(LayoutApi)`
   display: flex;
-
-  /* Row API */
-
-  flex-flow: ${props => (
-    props.flexFlow ? props.flexFlow : 'row wrap'
-  )};
-
-  justify-content: ${props => (
-    props.justifyContent ? props.justifyContent : 'flex-start'
-  )};
-
-  align-items: ${props => (
-    props.alignItems ? props.alignItems : 'center'
-  )};
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
 export default RowStyled;
