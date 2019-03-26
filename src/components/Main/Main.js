@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Albums } from '../index';
+import { Albums, LoadMore } from '../index';
 import { Row, Column, Box } from '../../layout';
 import { P } from '../../common';
 import { Spinner } from '../';
@@ -34,6 +34,11 @@ class Main extends Component {
           <Albums 
             albums={albums}
           />
+        </Row>
+        <Row
+          mt="10px"
+        >
+          {loading ? null : <LoadMore />}
           <Spinner
             show={loading}
           />
