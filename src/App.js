@@ -29,9 +29,6 @@ class App extends Component {
     const results = await fetchData(URL);
 
     if(!(results instanceof Error)) {
-      console.log(results);
-      console.log(typeof(results));
-
       this.setState({
         albums: {
           ...this.state.albums,

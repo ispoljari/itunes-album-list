@@ -56,7 +56,7 @@ class Main extends Component {
 Main.propTypes = {
   albums: PropTypes.instanceOf(Object),
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.instanceOf(Object),
+  error: PropTypes.instanceOf(Error),
   onClick: PropTypes.func.isRequired
 };
 

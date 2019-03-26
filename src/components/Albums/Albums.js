@@ -97,7 +97,7 @@ class Albums extends Component {
 
 Albums.propTypes = {
   albums: PropTypes.instanceOf(Object),
-  error: PropTypes.instanceOf(Object),
+  error: PropTypes.instanceOf(Error),
 };
 
 Albums.defaultProps = {
