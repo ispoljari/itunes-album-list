@@ -8,7 +8,8 @@ class ScrollToTop extends Component {
 
     this.buttonRef = React.createRef();
     this.state = {
-      visible: false
+      visible: false,
+      clicked: false
     }
   };
 
@@ -28,22 +29,32 @@ class ScrollToTop extends Component {
     } else {
       this.setState({
         visible: false
+      }, () => {
+        setTimeout(() => {
+          this.setState({
+            clicked: false
+          });
+        }, 550) // enable hover and focus effects after reaching top of page and fade transition of 500ms is complete
       });
     }
   };
 
   scrollToTop = () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
+    this.setState({
+      clicked: true
+    });
     this.buttonRef.current.blur();
   }
 
   render() {
-    const { visible } = this.state;
+    const { visible, clicked } = this.state;
 
     return (
       <Button 
         onClick={this.scrollToTop}
         visible={visible}
+        clicked={clicked}
         ref={this.buttonRef}
       >
         <i></i>

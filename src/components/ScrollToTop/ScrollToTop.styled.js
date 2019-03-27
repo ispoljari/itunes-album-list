@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Button = styled.button`
   visibility: ${props => props.visible ? 'visible' : 'hidden'};
@@ -23,14 +23,20 @@ export const Button = styled.button`
     transform: rotate(-135deg);
   }
 
-  @media(hover:hover) {
-    :hover {
-      cursor: pointer;
-      opacity: 1;
-    }
-  }
+  ${props => {
+    if (!props.clicked) {
+      return css`
+          @media(hover:hover) {
+            :hover {
+              cursor: pointer;
+              opacity: 1;
+            }
+          }
 
-  :focus {
-      opacity: 1;
+          :focus {
+            opacity: 1;
+          }
+      `;
     }
+  }}
 `;
