@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
+  visibility: ${props => props.visible ? 'visible' : 'hidden'};
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -11,7 +12,8 @@ export const Button = styled.button`
   background-color: #1ecee4;
   color: white;
   padding: 10px;
-  opacity: 0.4;
+  opacity: ${props => props.visible ? '0.4' : '0'};
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 
   i {
     border: solid white;

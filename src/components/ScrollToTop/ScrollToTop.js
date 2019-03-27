@@ -35,14 +35,12 @@ class ScrollToTop extends Component {
     const { visible } = this.state;
 
     return (
-      <React.Fragment>
-        {visible ? 
-          <Button onClick={this.scrollToTop}>
-            <i></i>
-          </Button>
-          : null
-        }
-       </React.Fragment>
+      <Button 
+        onClick={this.scrollToTop}
+        visible={visible}
+      >
+        <i></i>
+      </Button>
     );
   }
 };
