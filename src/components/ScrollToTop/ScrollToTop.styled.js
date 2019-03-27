@@ -23,8 +23,14 @@ export const Button = styled.button`
     transform: rotate(-135deg);
   }
 
-  :hover {
-    cursor: pointer;
-    opacity: 1;
+  @media(hover:hover) {
+    :hover {
+      cursor: pointer;
+      opacity: 1;
+    }
   }
+
+  :focus {
+      opacity: 1;
+    }
 `;

@@ -21,7 +21,7 @@ class ScrollToTop extends Component {
   };
 
   handleScrollBtnVisibility = () => {
-    if (window.pageYOffset > 50) {
+    if (window.pageYOffset > 200) {
       this.setState({
         visible: true
       });
@@ -45,7 +45,6 @@ class ScrollToTop extends Component {
         onClick={this.scrollToTop}
         visible={visible}
         ref={this.buttonRef}
-
       >
         <i></i>
       </Button>

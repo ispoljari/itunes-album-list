@@ -29,7 +29,7 @@ class Header extends Component {
                 iTunes Albums
               </H1>
               <P
-                mt="3px"
+                mt="5px"
               >
                 Top{limit} (USA)
               </P>
