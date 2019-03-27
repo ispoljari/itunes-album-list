@@ -50,9 +50,12 @@ const postTemplate = album => (
 );
 
 const filterAlbums = (albums, filterWords) => {
-  const filteredArray = Object.keys(albums).filter(key => (
-    albums[key]['im:artist'].label.includes(filterWords) ||  albums[key]['im:name'].label.includes(filterWords)
-  ));
+  const filteredArray = Object.keys(albums).filter(key => {
+    const albumName = albums[key]['im:name'].label.toLowerCase();
+    const artistName = albums[key]['im:artist'].label.toLowerCase();
+
+    return (albumName.includes(filterWords) ||  artistName.includes(filterWords));
+  });
   const filteredObj = filteredArray.reduce((obj, key) => {
     return {
       ...obj,
@@ -91,7 +94,7 @@ class Albums extends Component {
   render() {
     let results = [];
     const { albums, error, filterWords } = this.props;
-  
+
     const filteredAlbums = filterAlbums(albums, filterWords);
     if (!error) {
       Object.keys(filteredAlbums ).forEach(key => {

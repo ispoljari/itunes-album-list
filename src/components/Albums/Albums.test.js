@@ -13,10 +13,12 @@ describe('<Albums />', () => {
         'im:price': 'dummy',
       }
     }
+    const filterWords = "dummy";
     
     shallow(
       <Albums 
         albums={dummyData}
+        filterWords={filterWords}
       />
     );
   })

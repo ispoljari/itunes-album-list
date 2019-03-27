@@ -51,7 +51,8 @@ class App extends Component {
   }
 
   handleChange = e => {
-    const inputValue = e.target.value;
+    const rawInput = e.target.value;
+    const inputValue = rawInput.toLowerCase();
 
     this.setState({
       inputValue
