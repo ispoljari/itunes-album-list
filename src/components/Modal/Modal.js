@@ -24,6 +24,12 @@ const Modal = ({ handleClose, show, children }) => (
       <Row>
         <Column>
           {children}
+          <button
+            type="button"
+            onClick={handleClose}
+          >
+            Close
+          </button>
         </Column>
       </Row>
     </Box>
