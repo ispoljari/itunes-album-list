@@ -3,7 +3,7 @@ import { Normalize } from 'styled-normalize';
 
 import GlobalStyle from './Global.styled';
 import { Container } from './layout';
-import { Header, Main } from './components';
+import { Header, Main, ScrollToTop } from './components';
 import { fetchData } from './common';
 
 class App extends Component {
@@ -66,6 +66,7 @@ class App extends Component {
             error={error}
             onClick={this.loadAlbums}
           />
+          <ScrollToTop />
         </Container>
       </React.Fragment>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Box } from '../../common';
+import  { Button } from './ScrollToTop.styled';
 
 class ScrollToTop extends Component {
   state = {
@@ -36,7 +36,12 @@ class ScrollToTop extends Component {
 
     return (
       <React.Fragment>
-        {visible ? (<Box><button>Scroll</button></Box>) : null}
+        {visible ? 
+          <Button onClick={this.scrollToTop}>
+            <i></i>
+          </Button>
+          : null
+        }
        </React.Fragment>
     );
   }
