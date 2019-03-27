@@ -10,7 +10,7 @@ class Header extends Component {
 
     return (
       <Box
-        px="10px"
+        px={{xs:"0px", sm:"10px"}}
         py="30px"
       > 
         <Row>
