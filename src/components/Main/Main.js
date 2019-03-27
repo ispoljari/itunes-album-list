@@ -61,6 +61,7 @@ Main.propTypes = {
   loading: PropTypes.bool.isRequired,
   error: PropTypes.instanceOf(Error),
   onClick: PropTypes.func.isRequired,
+  showMoreInfo: PropTypes.func.isRequired
 };
 
 Main.defaultProps = {
