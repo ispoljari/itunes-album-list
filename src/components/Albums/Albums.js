@@ -16,8 +16,8 @@ const postTemplate = album => (
     <Box
       dsPlay="flex"
       backgroundColor="white"
-      px="15px"
-      py="15px"      
+      px="10px"
+      py="10px"      
       borderRadius="5px"
     >
       <Box
@@ -26,39 +26,65 @@ const postTemplate = album => (
         maxWd={{xs:"100px"}}
         maxHg={{xs:"100px"}}
       >
-        <Img src={album.imgSrc} alt="placeholder"/>
+        <Img 
+          src={album.imgSrc} alt="placeholder"
+        />
       </Box>
       <Box
         pl="10px"
         dsPlay="flex"
         flexDirection="column"
-        justifyContent="space-around"
+        justifyContent="flex-start"
       >
-        <Box>
-          <H2>{album.name}</H2>
-          <P
-            mt="5px"
-          >
-            {album.artist}
-          </P>
-        </Box>
-        <Box>
-          <P>
-            {album.price}
-          </P>
-        </Box>
+        <H2>
+          {album.name}
+        </H2>
+        <P
+          mt="5px"
+        >
+          {album.artist}
+        </P>
       </Box>
     </Box>
+  </Column>
+);
+
+const filterData = data => {
+  const filteredData = {};
+  
+  filteredData.imgSrc = data['im:image'][2].label;
+  filteredData.name = data['im:name'].label;
+  filteredData.artist = data['im:artist'].label;
+  filteredData.price = data['im:price'].label;
+
+  return filteredData;
+}
+
+const errorMessage = error => (
+  <Column
+    key={uuidv4()}
+  >
+    <P
+      error
+      textAlign="center"
+    >
+      {error.message}
+    </P>
   </Column>
 );
 
 class Albums extends Component {
   render() {
     let results = [];
-    let { data } = this.props;
-
-    for (let i=0; i<10; i++) {
-      results.push(postTemplate(data))
+    const { albums, error } = this.props;
+    
+    if (!error) {
+      Object.keys(albums).forEach(key => {
+        const filteredData = filterData(albums[key]);
+        results.push(postTemplate(filteredData));
+      });
+    } else {
+      results.push(errorMessage(error));
     }
     
     return (
@@ -70,12 +96,13 @@ class Albums extends Component {
 };
 
 Albums.propTypes = {
-  data: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    imgSrc: PropTypes.string.isRequired,
-    artist: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired
-  }).isRequired
+  albums: PropTypes.instanceOf(Object),
+  error: PropTypes.instanceOf(Error),
+};
+
+Albums.defaultProps = {
+  albums: {},
+  error: null
 };
 
 export default Albums;

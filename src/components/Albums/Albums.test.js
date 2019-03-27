@@ -6,14 +6,18 @@ import Albums from './Albums';
 describe('<Albums />', () => {
   it('Renders without crashing', () => {
     const dummyData = {
-      name: 'Album',
-      imgSrc: 'https://via.placeholder.com/170',
-      artist: "Artist Name",
-      price: '6.99$'
+      entry: {
+        'im:image': 'dummy',
+        'im:name': 'dummy',
+        'im:artist': 'dummy',
+        'im:price': 'dummy',
+      }
     }
     
     shallow(
-      <Albums data={dummyData}/>
+      <Albums 
+        albums={dummyData}
+      />
     );
   })
 });
