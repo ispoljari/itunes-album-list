@@ -5,21 +5,21 @@ import { Row, Column, Box } from '../../layout/';
 const Modal = ({ handleClose, show, children }) => (
   show ? 
   <Box
-    position="fixed"
+    pos="fixed"
     top="0"
     left="0"
-    width="100%"
-    height="100%"
+    wd="100%"
+    hg="100%"
     background="rgba(0,0,0,0.6)"
   >
     <Box
-      position="fixed"
+      pos="fixed"
       background="white"
-      width="80%"
-      height="auto"
+      wd="80%"
+      hg="auto"
       top="50%"
       left="50%"
-      transform="translate(-50%,-50%)"
+      transf="translate(-50%,-50%)"
     >
       <Row>
         <Column>

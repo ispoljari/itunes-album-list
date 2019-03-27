@@ -23,8 +23,8 @@ const BoxStyled = styled(LayoutApi)`
       sumCSS += `left: ${props.left};`;
     };
 
-    if (props.transform) {
-      sumCSS += `transform: ${props.transform};`;
+    if (props.transf) {
+      sumCSS += `transform: ${props.transf};`;
     };
 
     if (props.alignItems) {

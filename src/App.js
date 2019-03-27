@@ -3,7 +3,7 @@ import { Normalize } from 'styled-normalize';
 
 import GlobalStyle from './Global.styled';
 import { Container } from './layout';
-import { Header, Main, ScrollToTop } from './components';
+import { Header, Main, ScrollToTop, Modal } from './components';
 import { fetchData } from './common';
 
 class App extends Component {
@@ -79,6 +79,11 @@ class App extends Component {
             onClick={this.loadAlbums}
           />
           <ScrollToTop />
+          <Modal
+            show="true"
+          >
+            Hello. it's me.
+          </Modal>
         </Container>
       </React.Fragment>
     );
