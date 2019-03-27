@@ -3,9 +3,14 @@ import React, { Component } from 'react';
 import  { Button } from './ScrollToTop.styled';
 
 class ScrollToTop extends Component {
-  state = {
-    visible: false
-  }
+  constructor(props) {
+    super(props);
+
+    this.buttonRef = React.createRef();
+    this.state = {
+      visible: false
+    }
+  };
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScrollBtnVisibility);
@@ -29,6 +34,7 @@ class ScrollToTop extends Component {
 
   scrollToTop = () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
+    this.buttonRef.current.blur();
   }
 
   render() {
@@ -38,6 +44,8 @@ class ScrollToTop extends Component {
       <Button 
         onClick={this.scrollToTop}
         visible={visible}
+        ref={this.buttonRef}
+
       >
         <i></i>
       </Button>
