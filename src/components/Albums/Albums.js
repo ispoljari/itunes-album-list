@@ -6,57 +6,6 @@ import { Column, Box } from '../../layout';
 import { P } from '../../common';
 import { Img, H2, Link } from './Albums.styled';
 
-const postTemplate = album => (
-  <Column
-    md="6"
-    xl="4"
-    pb="20px"
-    key={uuidv4()}
-  >
-    <Box
-      dsPlay="flex"
-      backgroundColor="white"
-      px="10px"
-      py="10px"      
-      borderRadius="5px"
-    >
-      <Box
-        wd="170px"
-        hg="170px"
-        maxWd={{xs:"100px"}}
-        maxHg={{xs:"100px"}}
-      >
-        <Link
-          href="#1"
-        >
-          <Img 
-            src={album.imgSrc} alt="placeholder"
-          />
-        </Link>
-      </Box>
-      <Box
-        pl="10px"
-        dsPlay="flex"
-        flexDirection="column"
-        justifyContent="flex-start"
-      >
-        <Link
-          href="#1"  
-        >
-          <H2>
-            {album.name}
-          </H2>
-        </Link>
-        <P
-          mt="5px"
-        >
-          {album.artist}
-        </P>
-      </Box>
-    </Box>
-  </Column>
-);
-
 const filterAlbums = (albums, filterWords) => {
   const filteredArray = Object.keys(albums).filter(key => {
     const albumName = albums[key]['im:name'].label.toLowerCase();
@@ -99,9 +48,71 @@ const errorMessage = error => (
 );
 
 class Albums extends Component {
+  showMoreInfo = e => {
+    const target = e.target.closest('a');
+    
+    const album = target.dataset.albumid;
+    const artist = target.dataset.artistid;
+    const id = {
+      album,
+      artist
+    };
+
+
+  };
+
   render() {
     let results = [];
     const { albums, error, filterWords } = this.props;
+
+    const postTemplate = album => (
+      <Column
+        md="6"
+        xl="4"
+        pb="20px"
+        key={uuidv4()}
+      >
+        <Link
+          onClick={this.showMoreInfo}
+          data-artistid={album.artist}
+          data-albumid={album.name}
+        >
+          <Box
+            dsPlay="flex"
+            backgroundColor="white"
+            px="10px"
+            py="10px"      
+            borderRadius="5px"
+          >
+            <Box
+              wd="170px"
+              hg="170px"
+              maxWd={{xs:"100px"}}
+              maxHg={{xs:"100px"}}
+            >
+              <Img 
+                src={album.imgSrc} alt="placeholder"
+              />
+            </Box>
+            <Box
+              pl="10px"
+              dsPlay="flex"
+              flexDirection="column"
+              justifyContent="flex-start"
+            >
+              <H2>
+                {album.name}
+              </H2>
+              <P
+                mt="5px"
+              >
+                {album.artist}
+              </P>
+            </Box>
+          </Box>
+        </Link>
+      </Column>
+    );
 
     const filteredAlbums = filterAlbums(albums, filterWords);
     if (!error) {
