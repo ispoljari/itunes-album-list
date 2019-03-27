@@ -66,8 +66,9 @@ class App extends Component {
     })
   };
 
-  openModal = id => {
-    console.log(id);
+  openModal = albumJSON => {
+    const album = JSON.parse(albumJSON);
+    console.log(album);
   };
 
   render() {
@@ -88,7 +89,7 @@ class App extends Component {
             loading={loading}
             error={error}
             onClick={this.loadAlbums}
-            showMoreInfo={id => this.openModal(id)}
+            showMoreInfo={albumJSON => this.openModal(albumJSON)}
           />
           <ScrollToTop />
           <Modal

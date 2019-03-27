@@ -50,14 +50,9 @@ class Albums extends Component {
   showMoreInfo = e => {
     e.preventDefault();
     const target = e.target.closest('a');
-    
-    const album = target.dataset.albumid;
-    const artist = target.dataset.artistid;
+    const album = target.dataset.album;
 
-    this.props.showMoreInfo({
-      album,
-      artist
-    });
+    this.props.showMoreInfo(album);
   };
 
   render() {
@@ -73,8 +68,7 @@ class Albums extends Component {
       >
         <Link
           onClick={this.showMoreInfo}
-          data-artistid={album.artist}
-          data-albumid={album.name}
+          data-album={JSON.stringify(album)}
           tabIndex="0"
         >
           <span
