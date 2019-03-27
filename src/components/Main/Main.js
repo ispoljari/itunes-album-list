@@ -8,7 +8,7 @@ import { Spinner } from '../';
 
 class Main extends Component {
   render() {
-    const { albums, loading, error, onClick, filterWords } = this.props;
+    const { albums, loading, error, onClick, filterWords, showMoreInfo } = this.props;
     
     return (
       <Box
@@ -35,6 +35,7 @@ class Main extends Component {
             albums={albums}
             filterWords={filterWords}
             error={error}
+            showMoreInfo={showMoreInfo}
           />
         </Row>
         <Row

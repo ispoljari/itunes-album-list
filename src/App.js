@@ -14,7 +14,7 @@ class App extends Component {
     inputValue: '',
     error: null,
     modal: false
-  }
+  };
 
   loadAlbums = () => {
     this.setState(prevState => ({
@@ -45,11 +45,11 @@ class App extends Component {
         loading: false
       });
     }
-  }
+  };
 
   componentDidMount() {
     this.loadAlbums();
-  }
+  };
 
   handleChange = e => {
     const rawInput = e.target.value;
@@ -58,13 +58,17 @@ class App extends Component {
     this.setState({
       inputValue
     });
-  }
+  };
 
   handleClose = () => {
     this.setState({
       modal: false
     })
-  }
+  };
+
+  openModal = id => {
+    console.log(id);
+  };
 
   render() {
     const { loading, albums, error, limit, modal, inputValue } = this.state;
@@ -84,6 +88,7 @@ class App extends Component {
             loading={loading}
             error={error}
             onClick={this.loadAlbums}
+            showMoreInfo={id => this.openModal(id)}
           />
           <ScrollToTop />
           <Modal
@@ -96,6 +101,6 @@ class App extends Component {
       </React.Fragment>
     );
   }
-}
+};
 
 export default App;

@@ -53,12 +53,11 @@ class Albums extends Component {
     
     const album = target.dataset.albumid;
     const artist = target.dataset.artistid;
-    const id = {
+
+    this.props.showMoreInfo({
       album,
       artist
-    };
-
-
+    });
   };
 
   render() {
@@ -141,6 +140,7 @@ Albums.propTypes = {
   albums: PropTypes.instanceOf(Object),
   filterWords: PropTypes.string,
   error: PropTypes.instanceOf(Error),
+  showMoreInfo: PropTypes.func.isRequired
 };
 
 Albums.defaultProps = {
