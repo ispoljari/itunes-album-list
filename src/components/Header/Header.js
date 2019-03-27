@@ -50,6 +50,7 @@ class Header extends Component {
               type="text" 
               placeholder="Filter results by album or artist name" 
               onChange={handleChange}
+              tabIndex="0"
               />
           </Column>
         </Row>

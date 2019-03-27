@@ -7,10 +7,12 @@ export const Button = styled.button`
   background-color: #1ecee4;
   color: white;
   padding: 10px;
-  user-select: none;  
-  -webkit-tap-highlight-color: transparent;
 
   :hover {
     cursor: pointer;
+  }
+
+  :focus {
+    outline: 5px solid turquoise;
   }
 `;

@@ -25,6 +25,15 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-weight: 400;
   }
+
+  input,
+  textarea,
+  button,
+  select,
+  a {
+    user-select: none; 
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
 `;
 
 export default GlobalStyle;
