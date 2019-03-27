@@ -4,7 +4,7 @@ import uuidv4 from 'uuid/v4';
 
 import { Column, Box } from '../../layout';
 import { P } from '../../common';
-import { Img, H2 } from './Albums.styled';
+import { Img, H2, Link } from './Albums.styled';
 
 const postTemplate = album => (
   <Column
@@ -26,9 +26,13 @@ const postTemplate = album => (
         maxWd={{xs:"100px"}}
         maxHg={{xs:"100px"}}
       >
-        <Img 
-          src={album.imgSrc} alt="placeholder"
-        />
+        <Link
+          href="#1"
+        >
+          <Img 
+            src={album.imgSrc} alt="placeholder"
+          />
+        </Link>
       </Box>
       <Box
         pl="10px"
@@ -36,9 +40,13 @@ const postTemplate = album => (
         flexDirection="column"
         justifyContent="flex-start"
       >
-        <H2>
-          {album.name}
-        </H2>
+        <Link
+          href="#1"  
+        >
+          <H2>
+            {album.name}
+          </H2>
+        </Link>
         <P
           mt="5px"
         >

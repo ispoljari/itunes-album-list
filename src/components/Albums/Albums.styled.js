@@ -16,3 +16,10 @@ export const H2 = styled.h2`
     font-size: 16px;
   }
 `;
+
+export const Link = styled.a`
+  text-decoration: none;
+  color: inherit;
+  user-select: none;  
+  -webkit-tap-highlight-color: transparent;
+`;
