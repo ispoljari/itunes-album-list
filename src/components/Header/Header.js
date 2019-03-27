@@ -48,7 +48,7 @@ class Header extends Component {
           >
             <Input 
               type="text" 
-              placeholder="Filter by album or artist name" 
+              placeholder="Filter results by album or artist name" 
               onChange={handleChange}
               />
           </Column>
