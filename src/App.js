@@ -13,7 +13,7 @@ class App extends Component {
     albums: {},
     inputValue: '',
     error: null,
-    modal: true
+    modal: false
   }
 
   loadAlbums = () => {

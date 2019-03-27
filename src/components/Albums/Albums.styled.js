@@ -22,4 +22,23 @@ export const Link = styled.a`
   color: inherit;
   user-select: none;  
   -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  :focus {
+    outline: none;
+
+    span {
+      outline: 5px solid turquoise;
+    }
+  }
+
+  span:focus {
+    outline: none;
+  }
 `;

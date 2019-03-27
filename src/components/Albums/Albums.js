@@ -49,6 +49,7 @@ const errorMessage = error => (
 
 class Albums extends Component {
   showMoreInfo = e => {
+    e.preventDefault();
     const target = e.target.closest('a');
     
     const album = target.dataset.albumid;
@@ -76,40 +77,45 @@ class Albums extends Component {
           onClick={this.showMoreInfo}
           data-artistid={album.artist}
           data-albumid={album.name}
+          tabIndex="0"
         >
-          <Box
-            dsPlay="flex"
-            backgroundColor="white"
-            px="10px"
-            py="10px"      
-            borderRadius="5px"
+          <span
+            tabIndex="-1"
           >
             <Box
-              wd="170px"
-              hg="170px"
-              maxWd={{xs:"100px"}}
-              maxHg={{xs:"100px"}}
-            >
-              <Img 
-                src={album.imgSrc} alt="placeholder"
-              />
-            </Box>
-            <Box
-              pl="10px"
               dsPlay="flex"
-              flexDirection="column"
-              justifyContent="flex-start"
+              backgroundColor="white"
+              px="10px"
+              py="10px"      
+              borderRadius="5px"
             >
-              <H2>
-                {album.name}
-              </H2>
-              <P
-                mt="5px"
+              <Box
+                wd="170px"
+                hg="170px"
+                maxWd={{xs:"100px"}}
+                maxHg={{xs:"100px"}}
               >
-                {album.artist}
-              </P>
+                <Img 
+                  src={album.imgSrc} alt="placeholder"
+                />
+              </Box>
+              <Box
+                pl="10px"
+                dsPlay="flex"
+                flexDirection="column"
+                justifyContent="flex-start"
+              >
+                <H2>
+                  {album.name}
+                </H2>
+                <P
+                  mt="5px"
+                >
+                  {album.artist}
+                </P>
+              </Box>
             </Box>
-          </Box>
+          </span>
         </Link>
       </Column>
     );
