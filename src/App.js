@@ -11,6 +11,7 @@ class App extends Component {
     loading: false,
     limit: 0,
     albums: {},
+    inputValue: '',
     error: null
   }
 
@@ -50,7 +51,12 @@ class App extends Component {
   }
 
   handleChange = e => {
-    // hello
+    const inputValue = e.target.value;
+    console.log(inputValue);
+    
+    this.setState({
+      inputValue
+    });
   }
 
   render() {
