@@ -49,6 +49,20 @@ const postTemplate = album => (
   </Column>
 );
 
+const filterAlbums = (albums, filterWords) => {
+  const filteredArray = Object.keys(albums).filter(key => (
+    albums[key]['im:artist'].label.includes(filterWords) ||  albums[key]['im:name'].label.includes(filterWords)
+  ));
+  const filteredObj = filteredArray.reduce((obj, key) => {
+    return {
+      ...obj,
+      [key]: albums[key]
+    };
+  }, {});
+
+  return filteredObj;
+};
+
 const filterData = data => {
   const filteredData = {};
   
@@ -58,7 +72,7 @@ const filterData = data => {
   filteredData.price = data['im:price'].label;
 
   return filteredData;
-}
+};
 
 const errorMessage = error => (
   <Column
@@ -76,11 +90,12 @@ const errorMessage = error => (
 class Albums extends Component {
   render() {
     let results = [];
-    const { albums, error } = this.props;
-    
+    const { albums, error, filterWords } = this.props;
+  
+    const filteredAlbums = filterAlbums(albums, filterWords);
     if (!error) {
-      Object.keys(albums).forEach(key => {
-        const filteredData = filterData(albums[key]);
+      Object.keys(filteredAlbums ).forEach(key => {
+        const filteredData = filterData(filteredAlbums[key]);
         results.push(postTemplate(filteredData));
       });
     } else {

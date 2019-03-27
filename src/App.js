@@ -52,15 +52,14 @@ class App extends Component {
 
   handleChange = e => {
     const inputValue = e.target.value;
-    console.log(inputValue);
-    
+
     this.setState({
       inputValue
     });
   }
 
   render() {
-    const { loading, albums, error, limit } = this.state;
+    const { loading, albums, error, limit, inputValue } = this.state;
 
     return (
       <React.Fragment>
@@ -73,6 +72,7 @@ class App extends Component {
           />
           <Main 
             albums={albums}
+            filterWords={inputValue}
             loading={loading}
             error={error}
             onClick={this.loadAlbums}

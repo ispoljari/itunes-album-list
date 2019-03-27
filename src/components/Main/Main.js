@@ -8,7 +8,7 @@ import { Spinner } from '../';
 
 class Main extends Component {
   render() {
-    const { albums, loading, error, onClick } = this.props;
+    const { albums, loading, error, onClick, filterWords } = this.props;
     
     return (
       <Box
@@ -33,6 +33,7 @@ class Main extends Component {
         >
           <Albums 
             albums={albums}
+            filterWords={filterWords}
             error={error}
           />
         </Row>
@@ -55,6 +56,7 @@ class Main extends Component {
 
 Main.propTypes = {
   albums: PropTypes.instanceOf(Object),
+  filterWords: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.instanceOf(Error),
   onClick: PropTypes.func.isRequired,
@@ -62,6 +64,7 @@ Main.propTypes = {
 
 Main.defaultProps = {
   albums: {},
+  filterWords: '',
   error: null
 };
 
