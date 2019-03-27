@@ -40,7 +40,7 @@ class Main extends Component {
         <Row
           mt="10px"
         >
-          {(error || loading) ? null : 
+          {(error || loading || filterWords.length>0) ? null : 
             <LoadMore 
               onClick={onClick}
             />
