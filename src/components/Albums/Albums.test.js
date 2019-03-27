@@ -8,8 +8,12 @@ describe('<Albums />', () => {
     const dummyData = {
       entry: {
         'im:image': 'dummy',
-        'im:name': 'dummy',
-        'im:artist': 'dummy',
+        'im:name': {
+          label: 'dummy'
+        },
+        'im:artist': {
+          label: 'dummy'
+        },
         'im:price': 'dummy',
       }
     }

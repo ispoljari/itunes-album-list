@@ -115,11 +115,13 @@ class Albums extends Component {
 
 Albums.propTypes = {
   albums: PropTypes.instanceOf(Object),
+  filterWords: PropTypes.string,
   error: PropTypes.instanceOf(Error),
 };
 
 Albums.defaultProps = {
   albums: {},
+  filterWords: '',
   error: null
 };
 
