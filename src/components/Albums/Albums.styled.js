@@ -22,6 +22,7 @@ export const Link = styled.a`
   color: inherit;
   cursor: pointer;
 
+  /* Make element focusable by keyboard, and not by click */
   span {
     display: block;
     width: 100%;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import uuidv4 from 'uuid/v4';
 
 import { Column, Box } from '../../layout';
 import { P } from '../../common';
@@ -36,7 +35,7 @@ const filterData = data => {
 
 const errorMessage = error => (
   <Column
-    key={uuidv4()}
+    key={error.message}
   >
     <P
       error
@@ -71,7 +70,7 @@ class Albums extends Component {
         md="6"
         xl="4"
         pb="20px"
-        key={uuidv4()}
+        key={album.artist + album.name}
       >
         <Link
           onClick={this.showMoreInfo}

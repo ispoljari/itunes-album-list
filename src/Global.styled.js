@@ -34,6 +34,13 @@ const GlobalStyle = createGlobalStyle`
     user-select: none; 
     -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
+
+  button,
+  input {
+    :focus {
+      outline: 5px solid turquoise;
+    } 
+  }
 `;
 
 export default GlobalStyle;

@@ -11,8 +11,4 @@ export const Button = styled.button`
   :hover {
     cursor: pointer;
   }
-
-  :focus {
-    outline: 5px solid turquoise;
-  }
 `;
