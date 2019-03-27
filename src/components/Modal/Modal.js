@@ -8,6 +8,7 @@ const Modal = ({ handleClose, show, children }) => (
     pos="fixed"
     top="0"
     left="0"
+    zIndex="100"
     wd="100%"
     hg="100%"
     background="rgba(0,0,0,0.6)"
@@ -15,7 +16,9 @@ const Modal = ({ handleClose, show, children }) => (
     <Box
       pos="fixed"
       background="white"
-      wd="80%"
+      wd="90%"
+      maxWd="800px"
+      borderRadius="5px"
       hg="auto"
       top="50%"
       left="50%"
@@ -23,13 +26,17 @@ const Modal = ({ handleClose, show, children }) => (
     >
       <Row>
         <Column>
-          {children}
           <button
             type="button"
             onClick={handleClose}
           >
             Close
           </button>
+        </Column>
+      </Row>
+      <Row>
+        <Column>
+          {children}
         </Column>
       </Row>
     </Box>

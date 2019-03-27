@@ -15,6 +15,10 @@ const BoxStyled = styled(LayoutApi)`
       sumCSS += `position: ${props.pos};`;
     };
 
+    if (props.zIndex) {
+      sumCSS += `z-index: ${props.zIndex};`;
+    };
+
     if (props.top) {
       sumCSS += `top: ${props.top};`;
     };

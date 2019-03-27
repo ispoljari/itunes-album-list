@@ -12,7 +12,8 @@ class App extends Component {
     limit: 0,
     albums: {},
     inputValue: '',
-    error: null
+    error: null,
+    modal: true
   }
 
   loadAlbums = () => {
@@ -59,8 +60,14 @@ class App extends Component {
     });
   }
 
+  handleClose = () => {
+    this.setState({
+      modal: false
+    })
+  }
+
   render() {
-    const { loading, albums, error, limit, inputValue } = this.state;
+    const { loading, albums, error, limit, modal, inputValue } = this.state;
 
     return (
       <React.Fragment>
@@ -80,7 +87,8 @@ class App extends Component {
           />
           <ScrollToTop />
           <Modal
-            show="true"
+            show={modal}
+            handleClose={this.handleClose}
           >
             Hello. it's me.
           </Modal>
