@@ -20,13 +20,14 @@ class Header extends Component {
             md={6}
             lg={7}
             xl={8}
+            px={{xs:"0px"}}
           >
             <Box
               as="header"
               role="banner"
             >
               <H1>
-                iTunes Albums
+                Albums list
               </H1>
               <P
                 mt="5px"
@@ -42,6 +43,7 @@ class Header extends Component {
             lg={5}
             xl={4}
             mt={{xs:"15px"}}
+            px={{xs:"0px"}}
           >
             <Input type="text" placeholder="Search" />
           </Column>
