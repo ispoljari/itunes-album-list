@@ -11,6 +11,7 @@ class App extends Component {
     loading: false,
     limit: 0,
     albums: {},
+    inputValue: '',
     error: null
   }
 
@@ -49,8 +50,17 @@ class App extends Component {
     this.loadAlbums();
   }
 
+  handleChange = e => {
+    const rawInput = e.target.value;
+    const inputValue = rawInput.toLowerCase();
+
+    this.setState({
+      inputValue
+    });
+  }
+
   render() {
-    const { loading, albums, error, limit } = this.state;
+    const { loading, albums, error, limit, inputValue } = this.state;
 
     return (
       <React.Fragment>
@@ -59,9 +69,11 @@ class App extends Component {
         <Container>
           <Header
             limit={limit}
+            handleChange={this.handleChange}
           />
           <Main 
             albums={albums}
+            filterWords={inputValue}
             loading={loading}
             error={error}
             onClick={this.loadAlbums}

@@ -49,6 +49,23 @@ const postTemplate = album => (
   </Column>
 );
 
+const filterAlbums = (albums, filterWords) => {
+  const filteredArray = Object.keys(albums).filter(key => {
+    const albumName = albums[key]['im:name'].label.toLowerCase();
+    const artistName = albums[key]['im:artist'].label.toLowerCase();
+
+    return (albumName.includes(filterWords) ||  artistName.includes(filterWords));
+  });
+  const filteredObj = filteredArray.reduce((obj, key) => {
+    return {
+      ...obj,
+      [key]: albums[key]
+    };
+  }, {});
+
+  return filteredObj;
+};
+
 const filterData = data => {
   const filteredData = {};
   
@@ -58,7 +75,7 @@ const filterData = data => {
   filteredData.price = data['im:price'].label;
 
   return filteredData;
-}
+};
 
 const errorMessage = error => (
   <Column
@@ -76,11 +93,12 @@ const errorMessage = error => (
 class Albums extends Component {
   render() {
     let results = [];
-    const { albums, error } = this.props;
-    
+    const { albums, error, filterWords } = this.props;
+
+    const filteredAlbums = filterAlbums(albums, filterWords);
     if (!error) {
-      Object.keys(albums).forEach(key => {
-        const filteredData = filterData(albums[key]);
+      Object.keys(filteredAlbums ).forEach(key => {
+        const filteredData = filterData(filteredAlbums[key]);
         results.push(postTemplate(filteredData));
       });
     } else {
@@ -97,11 +115,13 @@ class Albums extends Component {
 
 Albums.propTypes = {
   albums: PropTypes.instanceOf(Object),
+  filterWords: PropTypes.string,
   error: PropTypes.instanceOf(Error),
 };
 
 Albums.defaultProps = {
   albums: {},
+  filterWords: '',
   error: null
 };
 

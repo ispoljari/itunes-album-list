@@ -5,8 +5,14 @@ import Header from './Header';
 
 describe('<Header />', () => {
   it('Renders without crashing', () => {
+    const limit = 10;
+    const callback = jest.fn();
+
     shallow(
-      <Header />
+      <Header 
+        limit={limit}
+        handleChange={callback}
+      />
     );
   })
 });
