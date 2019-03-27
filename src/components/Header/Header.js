@@ -6,9 +6,11 @@ import { P } from '../../common';
 
 class Header extends Component {
   render() {
+    const { limit } = this.props;
+
     return (
       <Box
-        px="30px"
+        px="10px"
         py="30px"
       > 
         <Row>
@@ -24,12 +26,12 @@ class Header extends Component {
               role="banner"
             >
               <H1>
-                Album list
+                iTunes Albums
               </H1>
               <P
                 mt="3px"
               >
-                Top10
+                Top{limit} (USA)
               </P>
             </Box>
           </Column>

@@ -14,8 +14,8 @@ class Main extends Component {
       <Box
         as="main"
         role="main"
-        px="30px"
-        py={{xs:"10px", sm:"30px"}}
+        px="10px"
+        py="20px"
         backgroundColor="#f7f7f7"
         borderRadius="5px"
       >

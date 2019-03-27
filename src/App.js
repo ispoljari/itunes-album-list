@@ -20,11 +20,10 @@ class App extends Component {
       error: null,
       limit: prevState.limit + 10
     }), () => {
-      this.loadResultsFromAPI().then(() => {
-        window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
-      });
-    });
-  }
+      this.loadResultsFromAPI();
+    })
+  };
+
 
   loadResultsFromAPI = async () => {
     const URL = `https://itunes.apple.com/us/rss/topalbums/limit=${this.state.limit}/json`;
@@ -44,8 +43,6 @@ class App extends Component {
         loading: false
       });
     }
-
-    return;
   }
 
   componentDidMount() {
@@ -60,7 +57,9 @@ class App extends Component {
         <Normalize />
         <GlobalStyle />
         <Container>
-          <Header />
+          <Header
+            limit={limit}
+          />
           <Main 
             albums={albums}
             loading={loading}
