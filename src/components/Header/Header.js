@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Row, Column, Box } from '../../layout';
 import { H1, Input } from './Header.styled';
@@ -6,7 +7,7 @@ import { P } from '../../common';
 
 class Header extends Component {
   render() {
-    const { limit } = this.props;
+    const { limit, handleChange } = this.props;
 
     return (
       <Box
@@ -45,12 +46,21 @@ class Header extends Component {
             mt={{xs:"15px"}}
             px={{xs:"0px"}}
           >
-            <Input type="text" placeholder="Search" />
+            <Input 
+              type="text" 
+              placeholder="Search by album or artist name" 
+              onChange={handleChange}
+              />
           </Column>
         </Row>
       </Box>
     )
   }
 }
+
+Header.propTypes = {
+  limit: PropTypes.number.isRequired,
+  handleChange: PropTypes.func.isRequired
+};
 
 export default Header;

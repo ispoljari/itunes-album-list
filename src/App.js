@@ -49,6 +49,10 @@ class App extends Component {
     this.loadAlbums();
   }
 
+  handleChange = e => {
+    // hello
+  }
+
   render() {
     const { loading, albums, error, limit } = this.state;
 
@@ -59,6 +63,7 @@ class App extends Component {
         <Container>
           <Header
             limit={limit}
+            handleChange={this.handleChange}
           />
           <Main 
             albums={albums}

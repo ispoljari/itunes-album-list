@@ -57,7 +57,7 @@ Main.propTypes = {
   albums: PropTypes.instanceOf(Object),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.instanceOf(Error),
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 Main.defaultProps = {
