@@ -1,66 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Normalize } from 'styled-normalize';
+import PropTypes from 'prop-types';
 
 import GlobalStyle from './Global.styled';
 import { Container } from './layout';
 import { Header, Main, ScrollToTop } from './components';
-import { fetchData } from './common';
 
-class App extends Component {
-  state= {
-    loading: false,
-    limit: 0,
-    albums: {},
-    inputValue: '',
-    error: null
-  };
-
-  loadAlbums = () => {
-    this.setState(prevState => ({
-      loading: true,
-      error: null,
-      limit: prevState.limit + 10
-    }), () => {
-      this.loadResultsFromAPI();
-    })
-  };
-
-
-  loadResultsFromAPI = async () => {
-    const URL = `https://itunes.apple.com/us/rss/topalbums/limit=${this.state.limit}/json`;
-    const results = await fetchData(URL);
-
-    if(!(results instanceof Error)) {
-      this.setState({
-        albums: {
-          ...this.state.albums,
-          ...results.feed.entry
-        },
-        loading: false
-      });
-    } else {
-      this.setState({
-        error: results,
-        loading: false
-      });
-    }
-  };
-
-  componentDidMount() {
-    this.loadAlbums();
-  };
-
-  handleChange = e => {
-    const rawInput = e.target.value;
-    const inputValue = rawInput.toLowerCase();
-
-    this.setState({
-      inputValue
-    });
-  };
-
-  render() {
-    const { loading, albums, error, limit, inputValue } = this.state;
+const App = ({ state, handleChange, loadAlbums }) => {
+    
+  const { loading, albums, error, limit, inputValue } = state;
 
     return (
       <React.Fragment>
@@ -69,20 +17,37 @@ class App extends Component {
         <Container>
           <Header
             limit={limit}
-            handleChange={this.handleChange}
+            handleChange={handleChange}
           />
           <Main 
             albums={albums}
             filterWords={inputValue}
             loading={loading}
             error={error}
-            onClick={this.loadAlbums}
+            onClick={loadAlbums}
           />
           <ScrollToTop />
         </Container>
       </React.Fragment>
     );
-  }
+};
+
+App.propTypes = {
+  state: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    albums: PropTypes.instanceOf(Object),
+    error: PropTypes.instanceOf(Error),
+    limit: PropTypes.number.isRequired,
+    inputValue: PropTypes.string,
+  }).isRequired,
+  handleChange: PropTypes.func.isRequired,
+  loadAlbums: PropTypes.func.isRequired
+};
+
+App.defaultProps = {
+  albums: {},
+  filterWords: '',
+  error: null
 };
 
 export default App;

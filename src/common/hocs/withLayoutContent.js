@@ -1,19 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const withLayoutContent = StyledComp => {
-  return class withLayoutContent extends Component {
-    render() {
-      const {children, ...styles} = this.props;
-
-      return (
-        <StyledComp
-        {...styles}
-      >
-        {children}
-      </StyledComp>
-      )
-    }
-  };
+  const withLayoutContent = ({ children, ...styles } ) => (
+    <StyledComp
+      {...styles}
+    >
+      {children}
+    </StyledComp>
+  );
+  
+  return withLayoutContent;
 };
 
 export default withLayoutContent;

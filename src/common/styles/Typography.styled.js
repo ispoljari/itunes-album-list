@@ -1,7 +1,14 @@
 import styled, { css } from 'styled-components';
 
 const P = styled.p`
-  font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1700 - 320)));
+  font-size: ${props => {
+    const smallFont = 'calc(12px + (16 - 12) * ((100vw - 320px) / (1700 - 320)))';
+    const largeFont = 'calc(14px + (18 - 14) * ((100vw - 320px) / (1700 - 320)))';
+    return props.large ? largeFont : smallFont;
+  }};
+
+  
+  
   color: ${props => {
     if (props.color) {
       return props.color;
@@ -39,11 +46,31 @@ const P = styled.p`
   }}
 
   @media (min-width: 1700px) {
-    font-size: 16px;
+    ${props => {
+      if (props.large) {
+        return css`
+          font-size: 18px;
+        `;
+      } else {
+        return css`
+          font-size: 16px;
+        `;
+      }
+    }};
   }
 
   @media (max-width: 320px) {
-    font-size: 12px;
+    ${props => {
+      if (props.large) {
+        return css`
+          font-size: 14px;
+        `;
+      } else {
+        return css`
+          font-size: 12px;
+        `;
+      }
+    }};
   }
 
   @media (max-width: 575px) {
@@ -56,14 +83,38 @@ const P = styled.p`
 `;
 
 const H2 = styled.h2`
-  font-size: calc(16px + (22 - 16) * ((100vw - 320px) / (1700 - 320)));
+ font-size: ${props => {
+    const smallFont = 'calc(16px + (22 - 16) * ((100vw - 320px) / (1700 - 320)))';
+    const largeFont = 'calc(18px + (24 - 18) * ((100vw - 320px) / (1700 - 320)))';
+    return props.large ? largeFont : smallFont;
+  }};
 
   @media (min-width: 1700px) {
-    font-size: 22px;
+    ${props => {
+      if (props.large) {
+        return css`
+          font-size: 24px;
+        `;
+      } else {
+        return css`
+          font-size: 22px;
+        `;
+      }
+    }};
   }
 
   @media (max-width: 320px) {
-    font-size: 16px;
+    ${props => {
+      if (props.large) {
+        return css`
+          font-size: 18px;
+        `;
+      } else {
+        return css`
+          font-size: 16px;
+        `;
+      }
+    }};
   }
 `;
 
