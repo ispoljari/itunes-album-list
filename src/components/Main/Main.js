@@ -67,6 +67,12 @@ class Main extends Component {
           <Modal
             show={modalOpen}
             handleClose={this.handleClose}
+            width="90%"
+            maxWidth="700px"
+            background="white"
+            px={{xs: "10px", sm: "20px"}}
+            py={{xs: "10px", sm: "20px"}}
+            borderRadius="5px"
           >
             <Row
               mb="15px"
@@ -83,25 +89,53 @@ class Main extends Component {
             <Row>
               <Column
                 px="0"
-                sm={6}
               >
                 <Box
-                  wd="170px"
-                  hg="170px"
-                  maxWd={{xs:"100px"}}
-                  maxHg={{xs:"100px"}}
+                  dsPlay="flex"
+                  backgroundColor="white"   
+                  borderRadius="5px"
                 >
-                  <Img 
-                    src={modalAlbum.imgSrc}
-                    alt="Album cover"
-                  />  
+                  <Box
+                    wd="170px"
+                    hg="170px"
+                    maxWd={{xs:"100px"}}
+                    maxHg={{xs:"100px"}}
+                  >
+                    <Img 
+                      src={modalAlbum.imgSrc} alt="Album cover"
+                    />
+                  </Box>
+                  <Box
+                    pl="10px"
+                    dsPlay="flex"
+                    flexDirection="column"
+                    justifyContent="space-between"
+                  >
+                    <Box
+                      mt="5px"
+                    >
+                      <P
+                        black
+                      >
+                        {modalAlbum.price}
+                      </P>
+                    </Box>
+                    <Box>
+                      <P
+                        textTransform="inherit"
+                      >
+                        {modalAlbum.releaseDate}
+                      </P>
+                      <P
+                        mt="5px"
+                        textTransform="inherit"
+                        hideXS
+                      >
+                        {modalAlbum.rights}
+                      </P>
+                    </Box>
+                  </Box>
                 </Box>
-              </Column>
-              <Column
-                px="0"
-                sm={6}
-              >
-                It's me
               </Column>
             </Row>
           </Modal>

@@ -3,8 +3,12 @@ import styled, { css } from 'styled-components';
 const P = styled.p`
   font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1700 - 320)));
   color: ${props => {
-    if (props.light) {
+    if (props.color) {
+      return props.color;
+    } else if (props.light) {
       return '#bebebe';
+    } else if (props.black) {
+      return 'black';
     } else if (props.error) {
       return 'red';
     } else {
@@ -12,7 +16,13 @@ const P = styled.p`
     }
   }};
 
-  text-transform: uppercase;
+  text-transform: ${props => {
+    if (props.textTransform) {
+      return props.textTransform;
+    } else {
+      return 'uppercase';
+    }
+  }};
 
   ${props => {
     let sumCSS = ``;
@@ -34,6 +44,14 @@ const P = styled.p`
 
   @media (max-width: 320px) {
     font-size: 12px;
+  }
+
+  @media (max-width: 575px) {
+    ${props => {
+      if (props.hideXS) {
+        return 'display: none';
+      }
+    }}
   }
 `;
 
