@@ -8,3 +8,7 @@ export const Button = styled.button`
   background-color: inherit;
   cursor: pointer;
 `;
+
+export const Link = styled.a`
+  color: inherit;
+`;
