@@ -1,4 +1,18 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const zoomInOut = keyframes`
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+`;
 
 export const Link = styled.a`
   text-decoration: none;
@@ -22,5 +36,14 @@ export const Link = styled.a`
 
   span:focus {
     outline: none;
+  }
+
+  @media(hover:hover) {
+    :hover {
+      div:first-of-type {
+        scale: 1;
+        animation: ${zoomInOut} 0.6s ease-in-out 1;
+      }
+    }
   }
 `;
