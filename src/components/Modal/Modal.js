@@ -27,25 +27,19 @@ const Modal = ({ handleClose, show, children }) => (
       left="50%"
       transf="translate(-50%,-50%)"
     >
-      <Row>
-        <Column
-          px="0"
-          py="0"
+      <Box
+        pos="absolute"
+        top="10px"
+        right="10px"
+      >
+        <Button
+          type="button"
+          onClick={handleClose}
+          autoFocus
         >
-          <Box
-            dsPlay="flex"
-            justifyContent="flex-end"
-          >
-            <Button
-              type="button"
-              onClick={handleClose}
-              autoFocus
-            >
-              &#10005;
-            </Button>
-          </Box>
-        </Column>
-      </Row>
+          &#10005;
+        </Button>
+      </Box>
       {children}
     </Box>
   </Box> : null
