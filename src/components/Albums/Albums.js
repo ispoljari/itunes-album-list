@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Column, Box } from '../../layout';
 import { P, H2, Img } from '../../common';
 import { Link } from './Albums.styled';
 
+// Helper functions
 const filterAlbums = (albums, filterWords) => {
   const filteredArray = Object.keys(albums).filter(key => {
     const albumName = albums[key]['im:name'].label.toLowerCase();
     const artistName = albums[key]['im:artist'].label.toLowerCase();
-
     return (albumName.includes(filterWords) ||  artistName.includes(filterWords));
   });
+  
   const filteredObj = filteredArray.reduce((obj, key) => {
     return {
       ...obj,
@@ -22,7 +23,7 @@ const filterAlbums = (albums, filterWords) => {
   return filteredObj;
 };
 
-const filterData = data => {
+const filterDataFromAlbum = data => {
   const filteredData = {};
   
   filteredData.imgSrc = data['im:image'][2] ? data['im:image'][2].label : data['im:image'][1].label;
@@ -51,97 +52,95 @@ const errorMessage = error => (
   </Column>
 );
 
-class Albums extends Component {
-  handleKeyPress = e => {
+// The actual component
+const Albums = ({ showMoreInfo, albums, error, filterWords}) => {
+  const handleKeyPress = e => {
     if(e.key === 'Enter') {
-      this.sendAlbumDataToModal(e);
+      sendAlbumDataToModal(e);
     }
-  }
-
-  handleClick = e => {
-    this.sendAlbumDataToModal(e);
   };
 
-  sendAlbumDataToModal = e => {
+  const handleClick = e => {
+    sendAlbumDataToModal(e);
+  };
+
+  const sendAlbumDataToModal = e => {
     const target = e.target.closest('a');
     const album = target.dataset.album;
-    this.props.showMoreInfo(album);
-  }
+    showMoreInfo(album);
+  };
 
-  render() {
-    let results = [];
-    const { albums, error, filterWords } = this.props;
-
-    const postTemplate = album => (
-      <Column
-        md={6}
-        xl={4}
-        pb="20px"
-        key={album.artist + album.name}
+  const postTemplate = album => (
+    <Column
+      md={6}
+      xl={4}
+      pb="20px"
+      key={album.artist + album.name}
+    >
+      <Link
+        onClick={handleClick}
+        onKeyPress={handleKeyPress}
+        data-album={JSON.stringify(album)}
+        tabIndex="0"
       >
-        <Link
-          onClick={this.handleClick}
-          onKeyPress={this.handleKeyPress}
-          data-album={JSON.stringify(album)}
-          tabIndex="0"
+        <span
+          tabIndex="-1"
         >
-          <span
-            tabIndex="-1"
+          <Box
+            dsPlay="flex"
+            backgroundColor="white"
+            px="10px"
+            py="10px"      
+            borderRadius="5px"
           >
             <Box
-              dsPlay="flex"
-              backgroundColor="white"
-              px="10px"
-              py="10px"      
-              borderRadius="5px"
+              wd="170px"
+              hg="170px"
+              maxWd={{xs:"100px"}}
+              maxHg={{xs:"100px"}}
             >
-              <Box
-                wd="170px"
-                hg="170px"
-                maxWd={{xs:"100px"}}
-                maxHg={{xs:"100px"}}
-              >
-                <Img 
-                  src={album.imgSrc} alt="Album cover"
-                />
-              </Box>
-              <Box
-                pl="10px"
-                dsPlay="flex"
-                flexDirection="column"
-                justifyContent="flex-start"
-              >
-                <H2>
-                  {album.name}
-                </H2>
-                <P
-                  mt="5px"
-                >
-                  {album.artist}
-                </P>
-              </Box>
+              <Img 
+                src={album.imgSrc} alt="Album cover"
+              />
             </Box>
-          </span>
-        </Link>
-      </Column>
-    );
+            <Box
+              pl="10px"
+              dsPlay="flex"
+              flexDirection="column"
+              justifyContent="flex-start"
+            >
+              <H2>
+                {album.name}
+              </H2>
+              <P
+                mt="5px"
+              >
+                {album.artist}
+              </P>
+            </Box>
+          </Box>
+        </span>
+      </Link>
+    </Column>
+  );
 
-    const filteredAlbums = filterAlbums(albums, filterWords);
-    if (!error) {
-      Object.keys(filteredAlbums ).forEach(key => {
-        const filteredData = filterData(filteredAlbums[key]);
-        results.push(postTemplate(filteredData));
-      });
-    } else {
-      results.push(errorMessage(error));
-    }
-    
-    return (
-      <React.Fragment>
-        {results}
-      </React.Fragment>
-    );
+  let results = [];
+  const filteredAlbums = filterAlbums(albums, filterWords);
+
+  if (!error) {
+    Object.keys(filteredAlbums ).forEach(key => {
+      const filteredData = filterDataFromAlbum(filteredAlbums[key]);
+      results.push(postTemplate(filteredData));
+    });
+  } else {
+    results.push(errorMessage(error));
   }
+    
+  return (
+    <React.Fragment>
+      {results}
+    </React.Fragment>
+  );
 };
 
 Albums.propTypes = {
