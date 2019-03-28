@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const P = styled.p`
   font-size: ${props => {
     const smallFont = 'calc(12px + (16 - 12) * ((100vw - 320px) / (1700 - 320)))';
-    const largeFont = 'calc(16px + (20 - 16) * ((100vw - 320px) / (1700 - 320)))';
+    const largeFont = 'calc(14px + (18 - 14) * ((100vw - 320px) / (1700 - 320)))';
     return props.large ? largeFont : smallFont;
   }};
 
@@ -49,7 +49,7 @@ const P = styled.p`
     ${props => {
       if (props.large) {
         return css`
-          font-size: 20px;
+          font-size: 18px;
         `;
       } else {
         return css`
@@ -63,7 +63,7 @@ const P = styled.p`
     ${props => {
       if (props.large) {
         return css`
-          font-size: 16px;
+          font-size: 14px;
         `;
       } else {
         return css`
@@ -85,7 +85,7 @@ const P = styled.p`
 const H2 = styled.h2`
  font-size: ${props => {
     const smallFont = 'calc(16px + (22 - 16) * ((100vw - 320px) / (1700 - 320)))';
-    const largeFont = 'calc(20px + (26 - 20) * ((100vw - 320px) / (1700 - 320)))';
+    const largeFont = 'calc(18px + (24 - 18) * ((100vw - 320px) / (1700 - 320)))';
     return props.large ? largeFont : smallFont;
   }};
 
@@ -93,7 +93,7 @@ const H2 = styled.h2`
     ${props => {
       if (props.large) {
         return css`
-          font-size: 26px;
+          font-size: 24px;
         `;
       } else {
         return css`
@@ -107,7 +107,7 @@ const H2 = styled.h2`
     ${props => {
       if (props.large) {
         return css`
-          font-size: 20px;
+          font-size: 18px;
         `;
       } else {
         return css`

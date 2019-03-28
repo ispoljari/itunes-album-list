@@ -139,6 +139,7 @@ const Modal = ({ handleClose, show, transClosing, transStarting, modalAlbum, ...
                     mt="5px"
                     textTransform="inherit"
                     hideXS
+                    large
                   >
                     {modalAlbum.rights}
                   </P>
