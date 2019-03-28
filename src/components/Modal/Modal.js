@@ -176,8 +176,8 @@ Modal.propTypes = {
   }).isRequired,
   handleClose: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
-  transClosing: PropTypes.bool.isRequired,
-  transStarting: PropTypes.bool.isRequired,
+  transClosing: PropTypes.bool,
+  transStarting: PropTypes.bool,
   modalAlbum: PropTypes.shape({
     fullTitle: PropTypes.string,
     imgSrc: PropTypes.string,
@@ -199,6 +199,8 @@ Modal.defaultProps = {
     py: '',
     borderRadius: '0'
   },
+  transClosing: false,
+  transStarting: false,
   modalAlbum: {
     fullTitle: '',
     imgSrc: '',
