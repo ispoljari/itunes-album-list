@@ -169,7 +169,6 @@ class Main extends Component {
                         mt="5px"
                         textTransform="inherit"
                         hideXS
-                        large
                       >
                         {modalAlbum.rights}
                       </P>
