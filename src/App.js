@@ -39,7 +39,9 @@ App.propTypes = {
     error: PropTypes.instanceOf(Error),
     limit: PropTypes.number.isRequired,
     inputValue: PropTypes.string,
-  })
+  }).isRequired,
+  handleChange: PropTypes.func.isRequired,
+  loadAlbums: PropTypes.func.isRequired
 };
 
 App.defaultProps = {
