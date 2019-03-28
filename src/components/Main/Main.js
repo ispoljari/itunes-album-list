@@ -8,23 +8,34 @@ import { Spinner } from '../';
 
 class Main extends Component {
   state = {
-    modal: true
+    modalOpen: false,
+    modalAlbum: {}
   };
 
   handleClose = () => {
     this.setState({
-      modal: false
+      modalOpen: false
     })
   };
 
   openModal = albumJSON => {
     const album = JSON.parse(albumJSON);
     console.log(album);
+
+    this.setState({
+      modalAlbum: {
+        ...album
+      }
+    }, () => {
+      this.setState({
+        modalOpen: true
+      })
+    });
   };
 
   render() {
     const { albums, loading, error, onClick, filterWords } = this.props;
-    const { modal } = this.state;
+    const { modalOpen } = this.state;
     
     return (
       <Box
@@ -54,7 +65,7 @@ class Main extends Component {
             showMoreInfo={albumJSON => this.openModal(albumJSON)}
           />
           <Modal
-            show={modal}
+            show={modalOpen}
             handleClose={this.handleClose}
           >
             Hello. it's me.

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Row, Column, Box } from '../../layout/';
+import { Button } from './Modal.styled';
 
 const Modal = ({ handleClose, show, children }) => (
   show ? 
@@ -25,13 +26,21 @@ const Modal = ({ handleClose, show, children }) => (
       transf="translate(-50%,-50%)"
     >
       <Row>
-        <Column>
-          <button
-            type="button"
-            onClick={handleClose}
+        <Column
+          px="0"
+          py="0"
+        >
+          <Box
+            dsPlay="flex"
+            justifyContent="flex-end"
           >
-            Close
-          </button>
+            <Button
+              type="button"
+              onClick={handleClose}
+            >
+              &#10005;
+            </Button>
+          </Box>
         </Column>
       </Row>
       <Row>
