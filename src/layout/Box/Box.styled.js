@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import { LayoutApi } from '../../common';
 
 const BoxStyled = styled(LayoutApi)`
-
   ${props => {
     let sumCSS = ``;
 

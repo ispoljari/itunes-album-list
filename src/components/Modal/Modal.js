@@ -1,56 +1,51 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { Box } from '../../layout/';
 import { Button } from './Modal.styled';
 
-class Modal extends Component {
-
-  render() {
-    const { handleClose, show, children, ...styles } = this.props;
-    const { width, maxWidth, background, px, py, borderRadius } = styles;
-
-    return (
-      show ? 
+const Modal = ({ handleClose, show, children, ...styles }) => {
+  const { width, maxWidth, background, px, py, borderRadius } = styles;
+  return (
+    show ? 
+    <Box
+      pos="fixed"
+      top="0"
+      left="0"
+      zIndex="100"
+      wd="100%"
+      hg="100%"
+      background="rgba(0,0,0,0.6)"
+    >
       <Box
         pos="fixed"
-        top="0"
-        left="0"
-        zIndex="100"
-        wd="100%"
-        hg="100%"
-        background="rgba(0,0,0,0.6)"
+        background={background}
+        wd={width}
+        maxWd={maxWidth}
+        px={px}
+        py={py}
+        borderRadius={borderRadius}
+        hg="auto"
+        top="50%"
+        left="50%"
+        transf="translate(-50%,-50%)"
       >
         <Box
-          pos="fixed"
-          background={background}
-          wd={width}
-          maxWd={maxWidth}
-          px={px}
-          py={py}
-          borderRadius={borderRadius}
-          hg="auto"
-          top="50%"
-          left="50%"
-          transf="translate(-50%,-50%)"
+          pos="absolute"
+          top="10px"
+          right="10px"
         >
-          <Box
-            pos="absolute"
-            top="10px"
-            right="10px"
+          <Button
+            type="button"
+            onClick={handleClose}
+            autoFocus
           >
-            <Button
-              type="button"
-              onClick={handleClose}
-              autoFocus
-            >
-              &#10005;
-            </Button>
-          </Box>
-          {children}
+            &#10005;
+          </Button>
         </Box>
-      </Box> : null
-    )
-  }
+        {children}
+      </Box>
+    </Box> : null
+  )
 };
 
 export default Modal;
