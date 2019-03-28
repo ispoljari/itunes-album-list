@@ -17,7 +17,6 @@ const zoomInOut = keyframes`
 export const Link = styled.a`
   text-decoration: none;
   color: inherit;
-  cursor: pointer;
 
   /* Make element focusable by keyboard, and not by click */
   span {
@@ -40,9 +39,11 @@ export const Link = styled.a`
 
   @media(hover:hover) {
     :hover {
+      cursor: pointer;
+
       div:first-of-type {
         scale: 1;
-        animation: ${zoomInOut} 0.6s ease-in-out 1;
+        animation: ${zoomInOut} 0.5s ease-in-out 1;
       }
     }
   }
