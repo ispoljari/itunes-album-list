@@ -3,7 +3,7 @@ import { Normalize } from 'styled-normalize';
 
 import GlobalStyle from './Global.styled';
 import { Container } from './layout';
-import { Header, Main, ScrollToTop, Modal } from './components';
+import { Header, Main, ScrollToTop } from './components';
 import { fetchData } from './common';
 
 class App extends Component {
@@ -12,8 +12,7 @@ class App extends Component {
     limit: 0,
     albums: {},
     inputValue: '',
-    error: null,
-    modal: false
+    error: null
   };
 
   loadAlbums = () => {
@@ -60,19 +59,8 @@ class App extends Component {
     });
   };
 
-  handleClose = () => {
-    this.setState({
-      modal: false
-    })
-  };
-
-  openModal = albumJSON => {
-    const album = JSON.parse(albumJSON);
-    console.log(album);
-  };
-
   render() {
-    const { loading, albums, error, limit, modal, inputValue } = this.state;
+    const { loading, albums, error, limit, inputValue } = this.state;
 
     return (
       <React.Fragment>
@@ -89,15 +77,8 @@ class App extends Component {
             loading={loading}
             error={error}
             onClick={this.loadAlbums}
-            showMoreInfo={albumJSON => this.openModal(albumJSON)}
           />
           <ScrollToTop />
-          <Modal
-            show={modal}
-            handleClose={this.handleClose}
-          >
-            Hello. it's me.
-          </Modal>
         </Container>
       </React.Fragment>
     );

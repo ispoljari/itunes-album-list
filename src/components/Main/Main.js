@@ -1,14 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Albums, LoadMore } from '../index';
+import { Albums, LoadMore, Modal } from '../index';
 import { Row, Column, Box } from '../../layout';
 import { P } from '../../common';
 import { Spinner } from '../';
 
 class Main extends Component {
+  state = {
+    modal: true
+  };
+
+  handleClose = () => {
+    this.setState({
+      modal: false
+    })
+  };
+
+  openModal = albumJSON => {
+    const album = JSON.parse(albumJSON);
+    console.log(album);
+  };
+
   render() {
-    const { albums, loading, error, onClick, filterWords, showMoreInfo } = this.props;
+    const { albums, loading, error, onClick, filterWords } = this.props;
+    const { modal } = this.state;
     
     return (
       <Box
@@ -35,8 +51,14 @@ class Main extends Component {
             albums={albums}
             filterWords={filterWords}
             error={error}
-            showMoreInfo={showMoreInfo}
+            showMoreInfo={albumJSON => this.openModal(albumJSON)}
           />
+          <Modal
+            show={modal}
+            handleClose={this.handleClose}
+          >
+            Hello. it's me.
+          </Modal>
         </Row>
         <Row
           mt="10px"
@@ -60,8 +82,7 @@ Main.propTypes = {
   filterWords: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.instanceOf(Error),
-  onClick: PropTypes.func.isRequired,
-  showMoreInfo: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired
 };
 
 Main.defaultProps = {
