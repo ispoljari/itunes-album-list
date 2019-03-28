@@ -117,15 +117,16 @@ class Main extends Component {
                   >
                     <Box>
                       <P
-                        black
                         large
                       >
                         {modalAlbum.price}
                       </P>
-                      <P
+                      {modalAlbum.url ? 
+                        <P
                         mt="5px"
                         textTransform="inherit"
                         large
+                        black
                       >
                         Play the&nbsp;
                         <Link
@@ -135,24 +136,28 @@ class Main extends Component {
                         >
                           tracks
                         </Link>
-                      </P>
-                      <P
-                        mt="5px"
-                        textTransform="inherit"
-                        large
-                      >
-                        More by&nbsp;
-                        <Link
-                          href={modalAlbum.artistUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        </P> : null
+                      }
+                      {modalAlbum.artistUrl ? 
+                        <P
+                          mt="5px"
+                          textTransform="inherit"
+                          large
+                          black
                         >
-                          {modalAlbum.artist}
-                        </Link>
-                      </P>
+                          More by&nbsp;
+                          <Link
+                            href={modalAlbum.artistUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {modalAlbum.artist}
+                          </Link>
+                        </P> : null
+                      }
                     </Box>
                     <Box
-                      mt="5px"
+                      mt="20px"
                     >
                       <P
                         textTransform="inherit"
