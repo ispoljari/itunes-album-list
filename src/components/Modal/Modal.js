@@ -19,6 +19,8 @@ const Modal = ({ handleClose, show, children }) => (
       background="white"
       wd="90%"
       maxWd="1000px"
+      px="10px"
+      py="10px"
       borderRadius="5px"
       hg="auto"
       top="50%"
@@ -44,11 +46,7 @@ const Modal = ({ handleClose, show, children }) => (
           </Box>
         </Column>
       </Row>
-      <Row>
-        <Column>
-          {children}
-        </Column>
-      </Row>
+      {children}
     </Box>
   </Box> : null
 );

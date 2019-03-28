@@ -5,6 +5,7 @@ import { Albums, LoadMore, Modal } from '../index';
 import { Row, Column, Box } from '../../layout';
 import { P } from '../../common';
 import { Spinner } from '../';
+import { Img } from './Main.styled';
 
 class Main extends Component {
   state = {
@@ -35,7 +36,7 @@ class Main extends Component {
 
   render() {
     const { albums, loading, error, onClick, filterWords } = this.props;
-    const { modalOpen } = this.state;
+    const { modalOpen, modalAlbum } = this.state;
     
     return (
       <Box
@@ -68,7 +69,28 @@ class Main extends Component {
             show={modalOpen}
             handleClose={this.handleClose}
           >
-            Hello. it's me.
+           <Row>
+              <Column
+                sm={6}
+              >
+                <Box
+                  wd="170px"
+                  hg="170px"
+                  maxWd={{xs:"100px"}}
+                  maxHg={{xs:"100px"}}
+                >
+                  <Img 
+                    src={modalAlbum.imgSrc}
+                    alt="Album cover"
+                  />  
+                </Box>
+              </Column>
+              <Column
+                sm={6}
+              >
+                It's me
+              </Column>
+           </Row>
           </Modal>
         </Row>
         <Row

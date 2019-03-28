@@ -74,8 +74,8 @@ class Albums extends Component {
 
     const postTemplate = album => (
       <Column
-        md="6"
-        xl="4"
+        md={6}
+        xl={4}
         pb="20px"
         key={album.artist + album.name}
       >
