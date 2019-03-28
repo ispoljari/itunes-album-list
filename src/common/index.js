@@ -1,4 +1,5 @@
+export * from './styles/Typography.styled';
+export * from './styles/Elements.styled';
+export * from './utils/index';
 export { default as LayoutApi } from './styles/LayoutApi.styled';
-export { P } from './styles/Typography.styled';
 export { default as withLayoutContent } from './hocs/withLayoutContent';
-export { fetchData } from './utils/index';

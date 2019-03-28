@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const P = styled.p`
+const P = styled.p`
   font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1700 - 320)));
   color: ${props => {
     if (props.light) {
@@ -36,3 +36,20 @@ export const P = styled.p`
     font-size: 12px;
   }
 `;
+
+const H2 = styled.h2`
+  font-size: calc(16px + (22 - 16) * ((100vw - 320px) / (1700 - 320)));
+
+  @media (min-width: 1700px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 16px;
+  }
+`;
+
+export {
+  P,
+  H2
+};

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Column, Box } from '../../layout';
-import { P } from '../../common';
-import { Img, H2, Link } from './Albums.styled';
+import { P, H2, Img } from '../../common';
+import { Link } from './Albums.styled';
 
 const filterAlbums = (albums, filterWords) => {
   const filteredArray = Object.keys(albums).filter(key => {

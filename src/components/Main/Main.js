@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 
 import { Albums, LoadMore, Modal } from '../index';
 import { Row, Column, Box } from '../../layout';
-import { P } from '../../common';
+import { P, H2, Img } from '../../common';
 import { Spinner } from '../';
-import { Img } from './Main.styled';
 
 class Main extends Component {
   state = {
@@ -69,8 +68,21 @@ class Main extends Component {
             show={modalOpen}
             handleClose={this.handleClose}
           >
-           <Row>
+            <Row
+              mb="15px"
+            >
               <Column
+                xs={11}
+                px="0"
+              >
+                <H2>
+                  {modalAlbum.fullTitle}
+                </H2>
+              </Column>
+            </Row>
+            <Row>
+              <Column
+                px="0"
                 sm={6}
               >
                 <Box
@@ -86,11 +98,12 @@ class Main extends Component {
                 </Box>
               </Column>
               <Column
+                px="0"
                 sm={6}
               >
                 It's me
               </Column>
-           </Row>
+            </Row>
           </Modal>
         </Row>
         <Row
