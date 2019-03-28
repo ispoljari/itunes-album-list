@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Row, Column, Box } from '../../layout/';
 import { P, H2, Img } from '../../common';
@@ -150,5 +151,61 @@ const Modal = ({ handleClose, show, modalAlbum, ...styles }) => {
     </Box> : null
   )
 };
+
+Modal.propTypes = {
+  styles: PropTypes.shape({
+    width: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    maxWidth: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]), 
+    background: PropTypes.string, 
+    px: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]), 
+    py: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),  
+    borderRadius: PropTypes.string 
+  }).isRequired,
+  handleClose: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired,
+  modalAlbum: PropTypes.shape({
+    fullTitle: PropTypes.string,
+    imgSrc: PropTypes.string,
+    price: PropTypes.string,
+    url: PropTypes.string,
+    artist: PropTypes.string,
+    artistUrl: PropTypes.string,
+    rights: PropTypes.string,
+    releaseDate: PropTypes.string,
+  }).isRequired
+};
+
+Modal.defaultProps = {
+  styles: {
+    width: '95%',
+    maxWidth: '700px',
+    background: 'white',
+    px: '',
+    py: '',
+    borderRadius: '0'
+  },
+  modalAlbum: {
+    fullTitle: '',
+    imgSrc: '',
+    price: '',
+    url: '',
+    artist: '',
+    artistUrl: '',
+    rights: '',
+    releaseDate: ''
+  }
+}
 
 export default Modal;
