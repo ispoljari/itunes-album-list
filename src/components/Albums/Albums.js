@@ -52,13 +52,23 @@ const errorMessage = error => (
 );
 
 class Albums extends Component {
-  showMoreInfo = e => {
+  handleKeyPress = e => {
+    if(e.key === 'Enter') {
+      this.sendAlbumDataToModal(e);
+    }
+  }
+
+  handleClick = e => {
     e.preventDefault();
+    this.sendAlbumDataToModal(e);
+  };
+
+  sendAlbumDataToModal = e => {
     const target = e.target.closest('a');
     const album = target.dataset.album;
 
     this.props.showMoreInfo(album);
-  };
+  }
 
   render() {
     let results = [];
@@ -72,7 +82,8 @@ class Albums extends Component {
         key={album.artist + album.name}
       >
         <Link
-          onClick={this.showMoreInfo}
+          onClick={this.handleClick}
+          onKeyPress={this.handleKeyPress}
           data-album={JSON.stringify(album)}
           tabIndex="0"
         >
