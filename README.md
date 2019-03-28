@@ -1,4 +1,4 @@
-#iTunes Top Albums List
+# iTunes Top Albums List
 
 With this App the user can load the top albums from the itunes store.
 Also, it is possible to filter the results by inputing a keyword (author or album name) and get more info by clicking on a specific album.
