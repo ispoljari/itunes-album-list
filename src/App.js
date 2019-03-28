@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Normalize } from 'styled-normalize';
 
 import GlobalStyle from './Global.styled';
 import { Container } from './layout';
 import { Header, Main, ScrollToTop } from './components';
 
-class App extends Component {
-  render() {
-    const { loading, albums, error, limit, inputValue } = this.state;
+const App = ({ state, handleChange, loadAlbums }) => {
+    
+  const { loading, albums, error, limit, inputValue } = state;
 
     return (
       <React.Fragment>
@@ -16,20 +16,20 @@ class App extends Component {
         <Container>
           <Header
             limit={limit}
-            handleChange={this.handleChange}
+            handleChange={handleChange}
           />
           <Main 
             albums={albums}
             filterWords={inputValue}
             loading={loading}
             error={error}
-            onClick={this.loadAlbums}
+            onClick={loadAlbums}
           />
           <ScrollToTop />
         </Container>
       </React.Fragment>
     );
-  }
+
 };
 
 export default App;
