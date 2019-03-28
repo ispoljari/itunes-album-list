@@ -66,8 +66,8 @@ class Albums extends Component {
   sendAlbumDataToModal = e => {
     const target = e.target.closest('a');
     const album = target.dataset.album;
-
     this.props.showMoreInfo(album);
+    target.blur();
   }
 
   render() {
