@@ -67,7 +67,7 @@ class Main extends Component {
           <Modal
             show={modalOpen}
             handleClose={this.handleClose}
-            width="90%"
+            width="95%"
             maxWidth="700px"
             background="white"
             px={{xs: "10px", sm: "20px"}}
@@ -81,7 +81,9 @@ class Main extends Component {
                 xs={11}
                 px="0"
               >
-                <H2>
+                <H2
+                  large
+                >
                   {modalAlbum.fullTitle}
                 </H2>
               </Column>
@@ -96,13 +98,15 @@ class Main extends Component {
                   borderRadius="5px"
                 >
                   <Box
-                    wd="170px"
-                    hg="170px"
-                    maxWd={{xs:"100px"}}
-                    maxHg={{xs:"100px"}}
+                    wd="250px"
+                    hg="250px"
+                    maxWd={{xs:"140px"}}
+                    maxHg={{xs:"140px"}}
                   >
                     <Img 
-                      src={modalAlbum.imgSrc} alt="Album cover"
+                      src={modalAlbum.imgSrc} 
+                      alt="Album cover"
+                      large
                     />
                   </Box>
                   <Box
@@ -114,12 +118,14 @@ class Main extends Component {
                     <Box>
                       <P
                         black
+                        large
                       >
                         {modalAlbum.price}
                       </P>
                       <P
                         mt="5px"
                         textTransform="inherit"
+                        large
                       >
                         Play the&nbsp;
                         <Link
@@ -133,8 +139,9 @@ class Main extends Component {
                       <P
                         mt="5px"
                         textTransform="inherit"
+                        large
                       >
-                        More from&nbsp;
+                        More by&nbsp;
                         <Link
                           href={modalAlbum.artistUrl}
                           target="_blank"
@@ -149,6 +156,7 @@ class Main extends Component {
                     >
                       <P
                         textTransform="inherit"
+                        large
                       >
                         {modalAlbum.releaseDate}
                       </P>
@@ -156,6 +164,7 @@ class Main extends Component {
                         mt="5px"
                         textTransform="inherit"
                         hideXS
+                        large
                       >
                         {modalAlbum.rights}
                       </P>
