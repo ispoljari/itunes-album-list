@@ -9,13 +9,22 @@ import { Spinner } from '../';
 class Main extends Component {
   state = {
     modalOpen: false,
-    modalAlbum: {}
+    modalAlbum: {},
+    transClosing: false,
+    transStarting: false
   };
 
   handleClose = () => {
     this.setState({
-      modalOpen: false
-    })
+      modalOpen: false,
+      transClosing: true
+    }, () => {
+      setTimeout(() => {
+        this.setState({
+          transClosing: false
+        });
+      }, 500)
+    });
   };
 
   openModal = albumJSON => {
@@ -27,14 +36,21 @@ class Main extends Component {
       }
     }, () => {
       this.setState({
-        modalOpen: true
-      })
+        modalOpen: true,
+        transStarting: true
+      });
+
+      setTimeout(() => {
+        this.setState({
+          transStarting: false
+        })
+      }, 500)
     });
   };
 
   render() {
     const { albums, loading, error, onClick, filterWords } = this.props;
-    const { modalOpen, modalAlbum } = this.state;
+    const { modalOpen, modalAlbum, transClosing, transStarting } = this.state;
     
     return (
       <Box
@@ -65,6 +81,8 @@ class Main extends Component {
           />
           <Modal
             show={modalOpen}
+            transClosing={transClosing}
+            transStarting={transStarting}
             handleClose={this.handleClose}
             modalAlbum={modalAlbum}
             width="95%"

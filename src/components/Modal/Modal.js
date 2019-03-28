@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 
 import { Row, Column, Box } from '../../layout/';
 import { P, H2, Img } from '../../common';
-import { Button, Link } from './Modal.styled';
+import { Animate, Button, Link } from './Modal.styled';
 
-const Modal = ({ handleClose, show, modalAlbum, ...styles }) => {
+const Modal = ({ handleClose, show, transClosing, transStarting, modalAlbum, ...styles }) => {
   const { width, maxWidth, background, px, py, borderRadius } = styles;
   return (
-    show ? 
-    <Box
+    <Animate
+      show={show}
+      transClosing={transClosing}
+      transStarting={transStarting}
       pos="fixed"
       top="0"
       left="0"
-      zIndex="100"
       wd="100%"
       hg="100%"
-      background="rgba(0,0,0,0.6)"
     >
       <Box
         pos="fixed"
@@ -148,7 +148,7 @@ const Modal = ({ handleClose, show, modalAlbum, ...styles }) => {
           </Column>
         </Row>
       </Box>
-    </Box> : null
+    </Animate>
   )
 };
 
@@ -175,6 +175,8 @@ Modal.propTypes = {
   }).isRequired,
   handleClose: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
+  transClosing: PropTypes.bool.isRequired,
+  transStarting: PropTypes.bool.isRequired,
   modalAlbum: PropTypes.shape({
     fullTitle: PropTypes.string,
     imgSrc: PropTypes.string,
