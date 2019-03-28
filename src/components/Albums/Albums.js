@@ -25,10 +25,15 @@ const filterAlbums = (albums, filterWords) => {
 const filterData = data => {
   const filteredData = {};
   
-  filteredData.imgSrc = data['im:image'][2].label;
-  filteredData.name = data['im:name'].label;
-  filteredData.artist = data['im:artist'].label;
-  filteredData.price = data['im:price'].label;
+  filteredData.imgSrc = data['im:image'][2] ? data['im:image'][2].label : data['im:image'][1].label;
+  filteredData.fullTitle = data.title ? data.title.label : '';
+  filteredData.name = data['im:name'] ? data['im:name'].label : '';
+  filteredData.url = data['link'].attributes ? data['link'].attributes.href : '';
+  filteredData.artist = data['im:artist'] ? data['im:artist'].label : '';
+  filteredData.artistUrl = data['im:artist'].attributes ? data['im:artist'].attributes.href : '';
+  filteredData.price = data['im:price'] ? data['im:price'].label : '';
+  filteredData.releaseDate = data['im:releaseDate'].attributes ? data['im:releaseDate'].attributes.label : '';
+  filteredData.rights = data['rights'] ? data['rights'].label : '';
 
   return filteredData;
 };
