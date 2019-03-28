@@ -98,8 +98,8 @@ class Main extends Component {
                   borderRadius="5px"
                 >
                   <Box
-                    wd="250px"
-                    hg="250px"
+                    wd="300px"
+                    hg="300px"
                     maxWd={{xs:"140px"}}
                     maxHg={{xs:"140px"}}
                   >

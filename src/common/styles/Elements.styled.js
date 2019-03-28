@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Img = styled.img`
   height: 100%;
-  max-width: ${props => props.large ? '250px' : '170px'};
+  max-width: ${props => props.large ? '300px' : '170px'};
   border-radius: 5px;
 `;
 
