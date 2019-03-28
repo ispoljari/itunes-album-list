@@ -18,7 +18,7 @@ const Modal = ({ handleClose, show, children }) => (
       pos="fixed"
       background="white"
       wd="90%"
-      maxWd="800px"
+      maxWd="1000px"
       borderRadius="5px"
       hg="auto"
       top="50%"
@@ -37,6 +37,7 @@ const Modal = ({ handleClose, show, children }) => (
             <Button
               type="button"
               onClick={handleClose}
+              autoFocus
             >
               &#10005;
             </Button>
