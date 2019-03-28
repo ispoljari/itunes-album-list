@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Albums, LoadMore, Modal } from '../index';
 import { Row, Column, Box } from '../../layout';
 import { P, H2, Img } from '../../common';
+import { Link } from './Main.styled';
 import { Spinner } from '../';
 
 class Main extends Component {
@@ -20,7 +21,6 @@ class Main extends Component {
 
   openModal = albumJSON => {
     const album = JSON.parse(albumJSON);
-    console.log(album);
 
     this.setState({
       modalAlbum: {
@@ -111,16 +111,42 @@ class Main extends Component {
                     flexDirection="column"
                     justifyContent="space-between"
                   >
-                    <Box
-                      mt="5px"
-                    >
+                    <Box>
                       <P
                         black
                       >
                         {modalAlbum.price}
                       </P>
+                      <P
+                        mt="5px"
+                        textTransform="inherit"
+                      >
+                        Play the&nbsp;
+                        <Link
+                          href={modalAlbum.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          tracks
+                        </Link>
+                      </P>
+                      <P
+                        mt="5px"
+                        textTransform="inherit"
+                      >
+                        More from&nbsp;
+                        <Link
+                          href={modalAlbum.artistUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {modalAlbum.artist}
+                        </Link>
+                      </P>
                     </Box>
-                    <Box>
+                    <Box
+                      mt="5px"
+                    >
                       <P
                         textTransform="inherit"
                       >
