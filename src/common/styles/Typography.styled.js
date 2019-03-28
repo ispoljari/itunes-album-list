@@ -1,10 +1,14 @@
 import styled, { css } from 'styled-components';
 
-export const P = styled.p`
+const P = styled.p`
   font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1700 - 320)));
   color: ${props => {
-    if (props.light) {
+    if (props.color) {
+      return props.color;
+    } else if (props.light) {
       return '#bebebe';
+    } else if (props.black) {
+      return 'black';
     } else if (props.error) {
       return 'red';
     } else {
@@ -12,7 +16,13 @@ export const P = styled.p`
     }
   }};
 
-  text-transform: uppercase;
+  text-transform: ${props => {
+    if (props.textTransform) {
+      return props.textTransform;
+    } else {
+      return 'uppercase';
+    }
+  }};
 
   ${props => {
     let sumCSS = ``;
@@ -35,4 +45,29 @@ export const P = styled.p`
   @media (max-width: 320px) {
     font-size: 12px;
   }
+
+  @media (max-width: 575px) {
+    ${props => {
+      if (props.hideXS) {
+        return 'display: none';
+      }
+    }}
+  }
 `;
+
+const H2 = styled.h2`
+  font-size: calc(16px + (22 - 16) * ((100vw - 320px) / (1700 - 320)));
+
+  @media (min-width: 1700px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 16px;
+  }
+`;
+
+export {
+  P,
+  H2
+};

@@ -20,6 +20,7 @@ export const Input = styled.input`
   border: 1px solid #c1c1c1;
   border-radius: 5px;
 
+
   @media (min-width: 1700px) {
     font-size: 18px;
   }

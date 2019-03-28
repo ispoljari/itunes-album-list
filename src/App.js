@@ -13,7 +13,7 @@ class App extends Component {
     albums: {},
     inputValue: '',
     error: null
-  }
+  };
 
   loadAlbums = () => {
     this.setState(prevState => ({
@@ -44,11 +44,11 @@ class App extends Component {
         loading: false
       });
     }
-  }
+  };
 
   componentDidMount() {
     this.loadAlbums();
-  }
+  };
 
   handleChange = e => {
     const rawInput = e.target.value;
@@ -57,7 +57,7 @@ class App extends Component {
     this.setState({
       inputValue
     });
-  }
+  };
 
   render() {
     const { loading, albums, error, limit, inputValue } = this.state;
@@ -83,6 +83,6 @@ class App extends Component {
       </React.Fragment>
     );
   }
-}
+};
 
 export default App;

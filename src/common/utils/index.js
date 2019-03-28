@@ -1,4 +1,4 @@
-export const fetchData = async url => {
+const fetchData = async url => {
   try {
     const rawData = await fetch(url);
     const data = await rawData.json();
@@ -6,4 +6,8 @@ export const fetchData = async url => {
   } catch (error) {
     return new Error('An error occured. Please reload the page.');
   }
+};
+
+export {
+  fetchData
 };

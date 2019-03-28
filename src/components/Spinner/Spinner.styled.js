@@ -12,12 +12,12 @@ const spin = keyframes`
 
 const Loader = styled.div`
   margin: 0 auto;
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid #969696;
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #969696;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: ${spin} 2s linear infinite;
+  width: 80px;
+  height: 80px;
+  animation: ${spin} 1s linear infinite;
 `;
 
 export default Loader;

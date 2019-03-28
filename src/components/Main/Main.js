@@ -1,14 +1,41 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Albums, LoadMore } from '../index';
+import { Albums, LoadMore, Modal } from '../index';
 import { Row, Column, Box } from '../../layout';
-import { P } from '../../common';
+import { P, H2, Img } from '../../common';
+import { Link } from './Main.styled';
 import { Spinner } from '../';
 
 class Main extends Component {
+  state = {
+    modalOpen: false,
+    modalAlbum: {}
+  };
+
+  handleClose = () => {
+    this.setState({
+      modalOpen: false
+    })
+  };
+
+  openModal = albumJSON => {
+    const album = JSON.parse(albumJSON);
+
+    this.setState({
+      modalAlbum: {
+        ...album
+      }
+    }, () => {
+      this.setState({
+        modalOpen: true
+      })
+    });
+  };
+
   render() {
     const { albums, loading, error, onClick, filterWords } = this.props;
+    const { modalOpen, modalAlbum } = this.state;
     
     return (
       <Box
@@ -35,7 +62,109 @@ class Main extends Component {
             albums={albums}
             filterWords={filterWords}
             error={error}
+            showMoreInfo={albumJSON => this.openModal(albumJSON)}
           />
+          <Modal
+            show={modalOpen}
+            handleClose={this.handleClose}
+            width="90%"
+            maxWidth="700px"
+            background="white"
+            px={{xs: "10px", sm: "20px"}}
+            py={{xs: "10px", sm: "20px"}}
+            borderRadius="5px"
+          >
+            <Row
+              mb="15px"
+            >
+              <Column
+                xs={11}
+                px="0"
+              >
+                <H2>
+                  {modalAlbum.fullTitle}
+                </H2>
+              </Column>
+            </Row>
+            <Row>
+              <Column
+                px="0"
+              >
+                <Box
+                  dsPlay="flex"
+                  backgroundColor="white"   
+                  borderRadius="5px"
+                >
+                  <Box
+                    wd="170px"
+                    hg="170px"
+                    maxWd={{xs:"100px"}}
+                    maxHg={{xs:"100px"}}
+                  >
+                    <Img 
+                      src={modalAlbum.imgSrc} alt="Album cover"
+                    />
+                  </Box>
+                  <Box
+                    pl="10px"
+                    dsPlay="flex"
+                    flexDirection="column"
+                    justifyContent="space-between"
+                  >
+                    <Box>
+                      <P
+                        black
+                      >
+                        {modalAlbum.price}
+                      </P>
+                      <P
+                        mt="5px"
+                        textTransform="inherit"
+                      >
+                        Play the&nbsp;
+                        <Link
+                          href={modalAlbum.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          tracks
+                        </Link>
+                      </P>
+                      <P
+                        mt="5px"
+                        textTransform="inherit"
+                      >
+                        More from&nbsp;
+                        <Link
+                          href={modalAlbum.artistUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {modalAlbum.artist}
+                        </Link>
+                      </P>
+                    </Box>
+                    <Box
+                      mt="5px"
+                    >
+                      <P
+                        textTransform="inherit"
+                      >
+                        {modalAlbum.releaseDate}
+                      </P>
+                      <P
+                        mt="5px"
+                        textTransform="inherit"
+                        hideXS
+                      >
+                        {modalAlbum.rights}
+                      </P>
+                    </Box>
+                  </Box>
+                </Box>
+              </Column>
+            </Row>
+          </Modal>
         </Row>
         <Row
           mt="10px"
@@ -59,7 +188,7 @@ Main.propTypes = {
   filterWords: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.instanceOf(Error),
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 Main.defaultProps = {
