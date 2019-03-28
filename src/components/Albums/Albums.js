@@ -59,7 +59,6 @@ class Albums extends Component {
   }
 
   handleClick = e => {
-    e.preventDefault();
     this.sendAlbumDataToModal(e);
   };
 
@@ -67,7 +66,6 @@ class Albums extends Component {
     const target = e.target.closest('a');
     const album = target.dataset.album;
     this.props.showMoreInfo(album);
-    target.blur();
   }
 
   render() {
@@ -104,7 +102,7 @@ class Albums extends Component {
                 maxHg={{xs:"100px"}}
               >
                 <Img 
-                  src={album.imgSrc} alt="placeholder"
+                  src={album.imgSrc} alt="Album cover"
                 />
               </Box>
               <Box
