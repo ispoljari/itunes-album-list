@@ -18,6 +18,7 @@ const App = ({ state, handleChange, loadAlbums }) => {
           <Header
             limit={limit}
             handleChange={handleChange}
+            inputValue={inputValue}
           />
           <Main 
             albums={albums}
