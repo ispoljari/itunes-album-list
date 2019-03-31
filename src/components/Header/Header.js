@@ -5,7 +5,7 @@ import { Row, Column, Box } from '../../layout';
 import { H1, Input } from './Header.styled';
 import { P } from '../../common';
 
-const Header = ({ limit, handleChange }) => (
+const Header = ({ limit, handleChange, inputValue }) => (
   <Box
     px={{xs:"0px", sm:"10px"}}
     py="30px"
@@ -46,7 +46,7 @@ const Header = ({ limit, handleChange }) => (
           type="text" 
           placeholder="Filter results by keyword" 
           onChange={handleChange}
-          tabIndex="0"
+          value={inputValue}
         />
       </Column>
     </Row>
@@ -55,7 +55,12 @@ const Header = ({ limit, handleChange }) => (
 
 Header.propTypes = {
   limit: PropTypes.number.isRequired,
-  handleChange: PropTypes.func.isRequired
+  handleChange: PropTypes.func.isRequired,
+  inputValue: PropTypes.string
 };
+
+Header.defaultProps = {
+  inputValue: ''
+}
 
 export default Header;
