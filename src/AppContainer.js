@@ -49,7 +49,6 @@ class AppContainer extends Component {
 
   handleChange = e => {
     const rawInput = e.target.value;
-    console.log(rawInput);
     const inputValue = rawInput.toLowerCase();
 
     this.setState({
